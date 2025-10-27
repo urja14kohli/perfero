@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-fraunces: 'Fraunces', 'Playfair Display', serif;
+    --background: #FAF7F2;
+    --foreground: #111112;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-inter);
+    line-height: 1.6;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Typography scale */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fraunces);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-size: 64px;
+    line-height: 68px;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -0.005em;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+  }
+
+  .body {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .small {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .button {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Container and layout */
+  .container-luxury {
+    @apply max-w-[1200px] mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-gold text-charcoal px-6 py-3 font-semibold hover:bg-gold-deep transition-all duration-150 ease-out hover:-translate-y-0.5 focus:ring-2 focus:ring-gold focus:outline-none;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl border border-line px-6 py-3 font-semibold text-charcoal hover:border-gold transition-all duration-150 ease-out hover:-translate-y-0.5 focus:ring-2 focus:ring-gold focus:outline-none;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-xl border border-line px-4 py-2 text-sm font-semibold text-charcoal hover:border-gold transition-all duration-150 ease-out focus:ring-2 focus:ring-gold focus:outline-none;
+  }
+
+  /* Card styles */
+  .card-luxury {
+    @apply rounded-2xl border border-line bg-white shadow-card hover:shadow-cardHover transition-all duration-150 ease-out hover:-translate-y-0.5;
+  }
+
+  /* Typography utilities */
+  .text-display {
+    @apply font-display;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-gold to-gold-deep;
+  }
+
+  /* Focus states */
+  .focus-luxury {
+    @apply focus:ring-2 focus:ring-gold focus:outline-none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Noise overlay for subtle texture */
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}

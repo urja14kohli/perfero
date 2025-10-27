@@ -1,0 +1,95 @@
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ShoppingCart, Star } from 'lucide-react';
+import { Product } from '@/lib/products';
+import { useCartStore } from '@/lib/cart';
+import { formatCurrency } from '@/lib/razorpay';
+import ImageStage from '@/components/ImageStage';
+
+interface ProductCardProps {
+  product: Product;
+  showAddToCart?: boolean;
+}
+
+const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
+  const { addItem } = useCartStore();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem(product);
+  };
+
+  const isOnSale = product.salePrice < product.price;
+
+  return (
+    <motion.div 
+      className="card-luxury"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      viewport={{ once: true }}
+    >
+      <Link href={`/shop/${product.id}`} className="block">
+        {/* Product Image */}
+        <div className="relative">
+          {isOnSale && (
+            <span className="absolute left-4 top-4 z-10 text-[11px] uppercase tracking-wide bg-gold/90 text-charcoal px-2.5 py-1 rounded-full">
+              Sale
+            </span>
+          )}
+          <ImageStage 
+            src={product.images[0]} 
+            alt={product.name} 
+            maskEdges={true}
+          />
+        </div>
+
+        {/* Product Info */}
+        <div className="p-5">
+          <h3 className="font-display text-xl text-charcoal mb-1">
+            {product.name}
+          </h3>
+          
+          <p className="small text-muted line-clamp-2 mb-4">
+            {product.description}
+          </p>
+
+          {/* Price */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-baseline gap-2">
+              <span className="text-lg font-semibold text-gold">
+                {formatCurrency(product.salePrice)}
+              </span>
+              {isOnSale && (
+                <span className="small text-muted line-through">
+                  {formatCurrency(product.price)}
+                </span>
+              )}
+            </div>
+            
+            {/* Rating */}
+            <div className="flex items-center gap-1">
+              <Star size={14} className="text-gold fill-current" />
+              <span className="small text-muted">4.8</span>
+            </div>
+          </div>
+
+          {/* Add to Cart Button */}
+          {showAddToCart && (
+            <button
+              onClick={handleAddToCart}
+              className="w-full btn-outline mt-4"
+            >
+              Add to Cart
+            </button>
+          )}
+        </div>
+      </Link>
+    </motion.div>
+  );
+};
+
+export default ProductCard;

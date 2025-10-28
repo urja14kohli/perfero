@@ -53,7 +53,7 @@ function ShopContent() {
       {/* Header */}
       <section className="relative bg-[radial-gradient(1000px_500px_at_50%_0,#F6F1E6,transparent)] border-b border-line">
         <div className="max-w-[1100px] mx-auto text-center py-16 px-6">
-          <h1 className="font-display text-5xl md:text-6xl text-charcoal">Shop <span className="text-gold">PERFÉRO</span></h1>
+          <h1 className="font-display text-5xl md:text-6xl text-charcoal">Shop <span className="text-gold">Perféro</span></h1>
           <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
             Discover our complete collection of seven fragrances - from single bottles to our signature gift set.
           </p>

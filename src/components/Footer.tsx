@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <div className="text-2xl font-display font-semibold text-gold">
-                PERFÉRO
+                Perféro
               </div>
             </Link>
             <p className="small text-ivory/80 mb-6 max-w-md">
@@ -160,7 +160,7 @@ const Footer = () => {
         <div className="border-t border-line/20 pt-6 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="small text-ivory/60">
-              © {currentYear} PERFÉRO. All rights reserved.
+              © {currentYear} 7 ACE EXIM LLP. All rights reserved.
             </p>
             <div className="flex space-x-6">
               {footerLinks.legal.map((link) => (

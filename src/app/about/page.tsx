@@ -12,7 +12,7 @@ export default function About() {
               Our Story
             </h1>
             <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto">
-              At PERFÉRO, we believe great fragrances shouldn't be expensive. We bring you seven 
+              At Perféro, we believe great fragrances shouldn't be expensive. We bring you seven 
               different scents in one beautiful box - so you can explore every mood 
               without the high-price tag.
             </p>
@@ -26,11 +26,11 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="font-display text-4xl md:text-5xl text-charcoal text-center after:block after:w-16 after:h-[2px] after:bg-gold after:mx-auto after:mt-3">
-                Why PERFÉRO?
+                Why Perféro?
               </h2>
               <div className="space-y-4 text-muted">
                 <p>
-                  Founded with a vision to make great fragrances affordable, PERFÉRO was born 
+                  Founded with a vision to make great fragrances affordable, Perféro was born 
                   from the belief that everyone deserves to experience amazing scents 
                   without compromising on quality or breaking the bank.
                 </p>
@@ -41,7 +41,7 @@ export default function About() {
                   in perfect balance.
                 </p>
                 <p>
-                  Designed for modern people: bold, clean, and smart. PERFÉRO delivers 
+                  Designed for modern people: bold, clean, and smart. Perféro delivers 
                   great scent experiences you'll love wearing, wrapped in our signature 
                   black and gold packaging that shows our commitment to quality.
                 </p>
@@ -52,7 +52,7 @@ export default function About() {
               <div className="relative aspect-square max-w-md mx-auto">
                 <Image
                   src="/images/gift-pack/pack front.jpeg"
-                  alt="PERFÉRO Signature Gift Pack"
+                  alt="Perféro Signature Gift Pack"
                   fill
                   className="object-cover rounded-2xl shadow-card"
                   sizes="(max-width: 768px) 100vw, 50vw"

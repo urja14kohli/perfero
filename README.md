@@ -1,6 +1,6 @@
-# PERFÉRO - Luxury Perfume E-Commerce
+# Perféro - Luxury Perfume E-Commerce
 
-A premium Next.js e-commerce website for PERFÉRO luxury perfumes featuring a 7-fragrance gift set and individual bottles.
+A premium Next.js e-commerce website for Perféro luxury perfumes featuring a 7-fragrance gift set and individual bottles.
 
 ## Features
 
@@ -111,7 +111,7 @@ npm start
 
 ## License
 
-This project is proprietary to PERFÉRO.
+This project is proprietary to Perféro.
 
 ## Contact
 

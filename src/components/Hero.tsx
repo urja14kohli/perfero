@@ -71,7 +71,7 @@ const Hero = () => {
             <div className="relative">
               <ImageStage
                 src="/images/gift-pack/pack front.jpeg"
-                alt="PERFÉRO Gift Set"
+                alt="Perféro Gift Set"
                 maskEdges={true}
                 className="shadow-card"
               />

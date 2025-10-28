@@ -217,7 +217,7 @@ export default function Cart() {
               <div className="mt-6 space-y-4">
                 <div className="bg-white border border-gray-200 rounded-lg p-4">
                   <h3 className="font-semibold text-black mb-2">
-                    Why Choose PERFÉRO?
+                    Why Choose Perféro?
                   </h3>
                   <ul className="text-sm text-gray-600 space-y-1">
                     <li>• Premium quality ingredients</li>

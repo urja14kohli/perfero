@@ -18,19 +18,19 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "PERFÉRO - Great Perfume Collection",
+  title: "Perféro - Great Perfume Collection",
   description: "Experience seven different scents in one great gift set. Quality perfumes made with care, designed for modern people.",
-  keywords: "perfume, fragrance collection, gift set, quality scents, PERFÉRO",
-  authors: [{ name: "PERFÉRO" }],
+  keywords: "perfume, fragrance collection, gift set, quality scents, Perféro",
+  authors: [{ name: "Perféro" }],
   openGraph: {
-    title: "PERFÉRO - Great Perfume Collection",
+    title: "Perféro - Great Perfume Collection",
     description: "Experience seven different scents in one great gift set.",
     type: "website",
     locale: "en_IN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PERFÉRO - Great Perfume Collection",
+    title: "Perféro - Great Perfume Collection",
     description: "Experience seven different scents in one great gift set.",
   },
 };

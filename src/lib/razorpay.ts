@@ -49,7 +49,7 @@ export const createRazorpayOptions = (
     key: razorpayConfig.key_id,
     amount: amount * 100, // Convert to paise
     currency: 'INR',
-    name: 'PERFÉRO',
+    name: 'Perféro',
     description: 'Luxury Perfume Purchase',
     order_id: orderId,
     handler: onSuccess,

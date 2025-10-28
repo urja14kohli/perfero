@@ -1,8 +1,8 @@
-# PERFÉRO Deployment Guide
+# Perféro Deployment Guide
 
 ## 🚀 Quick Start
 
-Your PERFÉRO luxury perfume e-commerce website is now ready for deployment! Here's everything you need to know.
+Your Perféro luxury perfume e-commerce website is now ready for deployment! Here's everything you need to know.
 
 ## 📋 Pre-Deployment Checklist
 
@@ -110,7 +110,7 @@ RAZORPAY_KEY_SECRET=xxxxxxxxxxxxxxxxxxxxxxxx
 
 # App Configuration
 NEXT_PUBLIC_APP_URL=https://yourdomain.com
-NEXT_PUBLIC_APP_NAME=PERFÉRO
+NEXT_PUBLIC_APP_NAME=Perféro
 
 # Optional: Database (for future use)
 DATABASE_URL=your_database_url_here
@@ -200,7 +200,7 @@ Update `src/app/layout.tsx`:
 
 ```typescript
 export const metadata: Metadata = {
-  title: "PERFÉRO - Luxury Perfume Collection",
+  title: "Perféro - Luxury Perfume Collection",
   description: "Your custom description...",
   keywords: "your, custom, keywords",
 };
@@ -309,7 +309,7 @@ Add to `src/app/layout.tsx`:
 
 ## 🎊 Congratulations!
 
-Your PERFÉRO luxury perfume e-commerce website is ready to launch! The site features:
+Your Perféro luxury perfume e-commerce website is ready to launch! The site features:
 
 - **Premium Design**: Black/gold luxury theme
 - **Full E-commerce**: Complete shopping experience

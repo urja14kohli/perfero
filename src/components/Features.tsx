@@ -9,7 +9,7 @@ const Features = () => {
       <div className="container-luxury">
         <div className="text-center mb-16">
           <h2 className="text-display-xl text-charcoal mb-4">
-            Why Choose PERFÉRO?
+            Why Choose Perféro?
           </h2>
           <p className="text-lead text-muted max-w-2xl mx-auto">
             Experience luxury redefined with our carefully curated collection of premium fragrances.

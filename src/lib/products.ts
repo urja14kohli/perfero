@@ -141,14 +141,14 @@ export const products: Product[] = [
   // Gift Pack (7x10ml) - ₹1,077
   {
     id: 'perfero-gift-pack',
-    name: 'PERFÉRO Signature Gift Pack',
+    name: 'Perféro Signature Gift Pack',
     price: 1077,
     salePrice: 1077,
     size: '7x10ml',
     images: [
       '/images/gift-pack/pack front.jpeg'
     ],
-    description: 'Experience the complete PERFÉRO collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
+    description: 'Experience the complete Perféro collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
     category: 'gift-pack',
     fragranceNotes: {
       top: ['Complete Collection'],

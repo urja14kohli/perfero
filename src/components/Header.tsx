@@ -23,7 +23,7 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl font-display font-semibold text-gold">
-              PERFÉRO
+              Perféro
             </div>
           </Link>
 

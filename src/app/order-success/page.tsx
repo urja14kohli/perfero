@@ -101,7 +101,7 @@ function OrderSuccessContent() {
               Continue Shopping
             </Link>
             <Link href="/about" className="btn-secondary">
-              Learn About PERFÉRO
+              Learn About Perféro
             </Link>
           </div>
 

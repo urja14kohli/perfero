@@ -69,15 +69,16 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
             <div className="relative max-w-sm mx-auto lg:max-w-none">
-              <ImageStage
-                src="/images/gift-pack/pack front.jpeg"
-                alt="Perféro Gift Set"
-                maskEdges={true}
-                className="shadow-card"
-              />
-              <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 bg-charcoal text-ivory text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-card whitespace-nowrap">
-                <span className="font-semibold">₹799</span>
-                <span className="text-[10px] sm:text-xs line-through opacity-70 ml-2">₹1,077</span>
+              <div className="rounded-lg overflow-hidden">
+                <ImageStage
+                  src="/images/gift-pack/pack front.jpeg"
+                  alt="Perféro Gift Set"
+                  maskEdges={true}
+                  className="shadow-card"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-gold text-charcoal px-6 py-3 rounded-full font-semibold shadow-card whitespace-nowrap">
+                Made in India
               </div>
             </div>
           </motion.div>

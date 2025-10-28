@@ -26,15 +26,15 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
 
   return (
     <motion.div 
-      className="card-luxury"
+      className="flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       viewport={{ once: true }}
     >
       <Link href={`/shop/${product.id}`} className="block">
-        {/* Product Image */}
-        <div className="relative">
+        {/* Product Image with Rounded Corners */}
+        <div className="relative mb-4 rounded-2xl overflow-hidden">
           {isOnSale && (
             <span className="absolute left-4 top-4 z-10 text-[11px] uppercase tracking-wide bg-gold/90 text-charcoal px-2.5 py-1 rounded-full">
               Sale
@@ -48,7 +48,7 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
         </div>
 
         {/* Product Info */}
-        <div className="p-5">
+        <div>
           <h3 className="font-display text-xl text-charcoal mb-1">
             {product.name}
           </h3>

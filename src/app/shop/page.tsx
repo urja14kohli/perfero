@@ -12,6 +12,7 @@ function ShopContent() {
   const [sortBy, setSortBy] = useState<'name' | 'price-low' | 'price-high'>('name');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     // Get category from URL params
@@ -52,30 +53,44 @@ function ShopContent() {
     <div className="bg-ivory">
       {/* Header */}
       <section className="relative bg-[radial-gradient(1000px_500px_at_50%_0,#F6F1E6,transparent)] border-b border-line">
-        <div className="max-w-[1100px] mx-auto text-center py-16 px-6">
-          <h1 className="font-display text-5xl md:text-6xl text-charcoal">Shop <span className="text-gold">Perféro</span></h1>
-          <p className="mt-4 text-lg text-muted max-w-2xl mx-auto">
+        <div className="max-w-[1100px] mx-auto text-center py-12 sm:py-16 px-4 sm:px-6">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-charcoal">Shop <span className="text-gold">Perféro</span></h1>
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted max-w-2xl mx-auto">
             Discover our complete collection of seven fragrances - from single bottles to our signature gift set.
           </p>
         </div>
       </section>
 
-      <div className="container-luxury py-20">
-        <div className="flex flex-col lg:flex-row gap-12">
+      <div className="container-luxury py-8 sm:py-12 lg:py-20">
+        {/* Mobile Filter Toggle */}
+        <div className="lg:hidden mb-6">
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="w-full btn-secondary flex items-center justify-center gap-2"
+          >
+            <Filter size={18} />
+            {showFilters ? 'Hide Filters' : 'Show Filters'}
+          </button>
+        </div>
+
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
           {/* Sidebar Filters */}
-          <div className="lg:w-80 flex-shrink-0">
-            <div className="sticky top-24 space-y-8">
+          <div className={`lg:w-80 flex-shrink-0 ${showFilters ? 'block' : 'hidden lg:block'}`}>
+            <div className="lg:sticky lg:top-24 space-y-6 sm:space-y-8">
               {/* Category Filter */}
-              <div className="bg-alabaster rounded-2xl p-6">
-                <h3 className="font-display text-xl text-charcoal mb-6 uppercase tracking-wide">
+              <div className="bg-alabaster rounded-2xl p-4 sm:p-6">
+                <h3 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6 uppercase tracking-wide">
                   Categories
                 </h3>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {categories.map((category) => (
                     <button
                       key={category.id}
-                      onClick={() => setSelectedCategory(category.id as any)}
-                      className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 ${
+                      onClick={() => {
+                        setSelectedCategory(category.id as any);
+                        setShowFilters(false);
+                      }}
+                      className={`w-full text-left px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl transition-all duration-200 text-sm sm:text-base ${
                         selectedCategory === category.id
                           ? 'bg-gold/90 text-charcoal font-semibold'
                           : 'text-muted hover:bg-white hover:text-charcoal'
@@ -83,7 +98,7 @@ function ShopContent() {
                     >
                       <div className="flex justify-between items-center">
                         <span>{category.name}</span>
-                        <span className="text-xs bg-white/60 px-2 py-1 rounded-full text-muted">
+                        <span className="text-[10px] sm:text-xs bg-white/60 px-2 py-1 rounded-full text-muted">
                           {category.count}
                         </span>
                       </div>
@@ -93,12 +108,12 @@ function ShopContent() {
               </div>
 
               {/* Sort Options */}
-              <div className="bg-alabaster rounded-2xl p-6">
-                <h3 className="font-display text-xl text-charcoal mb-6 uppercase tracking-wide">Sort By</h3>
+              <div className="bg-alabaster rounded-2xl p-4 sm:p-6">
+                <h3 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6 uppercase tracking-wide">Sort By</h3>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
-                  className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white text-charcoal"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white text-charcoal text-sm sm:text-base"
                 >
                   <option value="name">Name (A-Z)</option>
                   <option value="price-low">Price (Low to High)</option>
@@ -106,9 +121,9 @@ function ShopContent() {
                 </select>
               </div>
 
-              {/* View Mode Toggle */}
-              <div className="bg-alabaster rounded-2xl p-6">
-                <h3 className="font-display text-xl text-charcoal mb-6 uppercase tracking-wide">View</h3>
+              {/* View Mode Toggle - Hidden on Mobile */}
+              <div className="hidden sm:block bg-alabaster rounded-2xl p-4 sm:p-6">
+                <h3 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6 uppercase tracking-wide">View</h3>
                 <div className="flex border border-line rounded-xl overflow-hidden">
                   <button
                     onClick={() => setViewMode('grid')}
@@ -138,12 +153,12 @@ function ShopContent() {
           {/* Products Grid */}
           <div className="flex-1">
             {/* Results Header */}
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center mb-6 sm:mb-8">
               <div>
-                <h2 className="font-display text-2xl text-charcoal">
+                <h2 className="font-display text-xl sm:text-2xl text-charcoal">
                   {categories.find(c => c.id === selectedCategory)?.name}
                 </h2>
-                <p className="text-muted mt-1">
+                <p className="text-muted mt-1 text-sm sm:text-base">
                   {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
                 </p>
               </div>
@@ -151,7 +166,7 @@ function ShopContent() {
 
             {/* Products Grid */}
             {filteredProducts.length > 0 ? (
-              <div className={`grid gap-8 ${
+              <div className={`grid gap-4 sm:gap-6 lg:gap-8 ${
                 viewMode === 'grid'
                   ? 'grid-cols-1 sm:grid-cols-2'
                   : 'grid-cols-1'
@@ -161,14 +176,14 @@ function ShopContent() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
-                <div className="text-muted mb-6">
-                  <Filter size={48} />
+              <div className="text-center py-12 sm:py-16">
+                <div className="text-muted mb-4 sm:mb-6 mx-auto w-12 h-12 sm:w-16 sm:h-16">
+                  <Filter size={48} className="mx-auto" />
                 </div>
-                <h3 className="font-display text-xl text-charcoal mb-3">
+                <h3 className="font-display text-lg sm:text-xl text-charcoal mb-2 sm:mb-3">
                   No products found
                 </h3>
-                <p className="text-muted">
+                <p className="text-muted text-sm sm:text-base">
                   Try adjusting your filters to see more products
                 </p>
               </div>
@@ -179,11 +194,11 @@ function ShopContent() {
 
       {/* Featured Gift Pack Section */}
       {selectedCategory === 'all' && (
-        <section className="bg-[radial-gradient(1200px_600px_at_50%_0,#F6F1E6,transparent)] py-24">
-          <div className="max-w-[800px] mx-auto text-center px-6">
-            <h2 className="font-display text-5xl text-charcoal">Featured Gift Pack</h2>
-            <p className="mt-3 text-lg text-muted">Our signature 7-fragrance collection in one beautiful package.</p>
-            <div className="mt-10 bg-white border border-line rounded-2xl shadow-card p-8 inline-block">
+        <section className="bg-[radial-gradient(1200px_600px_at_50%_0,#F6F1E6,transparent)] py-12 sm:py-16 lg:py-24">
+          <div className="max-w-[800px] mx-auto text-center px-4 sm:px-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-charcoal">Featured Gift Pack</h2>
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg text-muted">Our signature 7-fragrance collection in one beautiful package.</p>
+            <div className="mt-6 sm:mt-8 lg:mt-10 bg-white border border-line rounded-2xl shadow-card p-4 sm:p-6 lg:p-8 inline-block max-w-full">
               <ProductCard 
                 product={products.find(p => p.category === 'gift-pack')!} 
               />

@@ -12,16 +12,16 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,#F6F1E6,transparent)] opacity-60"></div>
       
       <div className="container-luxury section-spacing">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 order-2 lg:order-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="space-y-6">
-              <h1 className="font-display text-4xl md:text-display-xl leading-tight text-charcoal">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight text-charcoal">
                 Seven <span className="text-gradient-gold">Scents</span><br/>One Perfect Gift
               </h1>
               
@@ -31,31 +31,31 @@ const Hero = () => {
             </div>
 
             {/* Features */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="flex items-center gap-2">
-                <Star size={16} className="text-gold fill-current" />
+                <Star size={14} className="text-gold fill-current sm:w-4 sm:h-4" />
                 <span className="small text-muted">Great Quality</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-sm">🇮🇳</span>
+                <span className="text-xs sm:text-sm">🇮🇳</span>
                 <span className="small text-muted">Made in India</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-sm">🎁</span>
+                <span className="text-xs sm:text-sm">🎁</span>
                 <span className="small text-muted">Beautiful Packaging</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-sm">₹</span>
+                <span className="text-xs sm:text-sm">₹</span>
                 <span className="small text-muted">Smart Pricing</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <Link href="/shop" className="btn-primary">
+              <Link href="/shop" className="btn-primary w-full sm:w-auto text-center">
                 Shop the Gift Pack
               </Link>
-              <Link href="/shop?category=single" className="btn-secondary">
+              <Link href="/shop?category=single" className="btn-secondary w-full sm:w-auto text-center">
                 Explore Singles
               </Link>
             </div>
@@ -63,21 +63,21 @@ const Hero = () => {
 
           {/* Hero Image */}
           <motion.div 
-            className="relative"
+            className="relative order-1 lg:order-2"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <div className="relative">
+            <div className="relative max-w-sm mx-auto lg:max-w-none">
               <ImageStage
                 src="/images/gift-pack/pack front.jpeg"
                 alt="Perféro Gift Set"
                 maskEdges={true}
                 className="shadow-card"
               />
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-charcoal text-ivory text-sm px-4 py-2 rounded-full shadow-card">
+              <div className="absolute -bottom-3 sm:-bottom-4 left-1/2 -translate-x-1/2 bg-charcoal text-ivory text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-card whitespace-nowrap">
                 <span className="font-semibold">₹799</span>
-                <span className="text-xs line-through opacity-70 ml-2">₹1,077</span>
+                <span className="text-[10px] sm:text-xs line-through opacity-70 ml-2">₹1,077</span>
               </div>
             </div>
           </motion.div>

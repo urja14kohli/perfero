@@ -201,33 +201,33 @@ export default function Checkout() {
   return (
     <div className="bg-ivory">
       {/* Header */}
-      <div className="bg-alabaster py-8">
+      <div className="bg-alabaster py-4 sm:py-6 lg:py-8">
         <div className="container-luxury">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-display text-display-lg text-charcoal mb-2">
+              <h1 className="font-display text-2xl sm:text-3xl lg:text-display-lg text-charcoal mb-1 sm:mb-2">
                 Checkout
               </h1>
-              <p className="text-muted">
+              <p className="text-muted text-sm sm:text-base">
                 Complete your order securely
               </p>
             </div>
             
             <button
               onClick={() => router.back()}
-              className="flex items-center text-muted hover:text-gold transition-colors duration-200"
+              className="flex items-center text-muted hover:text-gold transition-colors duration-200 text-sm sm:text-base"
             >
-              <ArrowLeft size={16} className="mr-2" />
-              Back
+              <ArrowLeft size={14} className="mr-1 sm:mr-2 sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Back</span>
             </button>
           </div>
         </div>
       </div>
 
-      <div className="container-luxury py-8">
+      <div className="container-luxury py-6 sm:py-8">
         {/* Progress Steps */}
-        <div className="mb-8">
-          <div className="flex items-center justify-center space-x-8">
+        <div className="mb-6 sm:mb-8 overflow-x-auto pb-2">
+          <div className="flex items-center justify-center space-x-4 sm:space-x-6 lg:space-x-8 min-w-max px-4">
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isActive = currentStep >= step.id;
@@ -235,22 +235,22 @@ export default function Checkout() {
               
               return (
                 <div key={step.id} className="flex items-center">
-                  <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors duration-200 ${
+                  <div className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 transition-colors duration-200 ${
                     isCompleted 
                       ? 'bg-gold border-gold text-charcoal' 
                       : isActive 
                         ? 'border-gold text-gold' 
                         : 'border-line text-muted'
                   }`}>
-                    <Icon size={16} />
+                    <Icon size={14} className="sm:w-4 sm:h-4" />
                   </div>
-                  <span className={`ml-2 small font-medium ${
+                  <span className={`ml-1.5 sm:ml-2 small font-medium text-xs sm:text-sm ${
                     isActive ? 'text-charcoal' : 'text-muted'
                   }`}>
                     {step.name}
                   </span>
                   {index < steps.length - 1 && (
-                    <div className={`w-8 h-0.5 ml-4 ${
+                    <div className={`w-4 sm:w-6 lg:w-8 h-0.5 ml-2 sm:ml-3 lg:ml-4 ${
                       isCompleted ? 'bg-gold' : 'bg-line'
                     }`} />
                   )}
@@ -260,30 +260,30 @@ export default function Checkout() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
             {currentStep === 1 && (
-              <div className="bg-white border border-line rounded-2xl p-6">
-                <h2 className="font-display text-xl text-charcoal mb-6">
+              <div className="bg-white border border-line rounded-2xl p-4 sm:p-6">
+                <h2 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6">
                   Shipping Information
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block small font-medium text-charcoal mb-2">
+                    <label className="block small font-medium text-charcoal mb-1.5 sm:mb-2 text-xs sm:text-sm">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       value={customerDetails.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                      className={`w-full px-3 py-2 sm:py-2.5 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent text-sm sm:text-base ${
                         errors.name ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your full name"
                     />
-                    {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                    {errors.name && <p className="text-red-500 text-xs sm:text-sm mt-1">{errors.name}</p>}
                   </div>
 
                   <div>
@@ -385,7 +385,7 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-4 sm:mt-6">
                   <button
                     onClick={handleNext}
                     className="w-full btn-primary"
@@ -397,16 +397,16 @@ export default function Checkout() {
             )}
 
             {currentStep === 2 && (
-              <div className="bg-white border border-line rounded-2xl p-6">
-                <h2 className="font-display text-xl text-charcoal mb-6">
+              <div className="bg-white border border-line rounded-2xl p-4 sm:p-6">
+                <h2 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6">
                   Review Your Order
                 </h2>
 
                 {/* Order Items */}
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex items-center space-x-4 p-4 border border-line rounded-xl">
-                      <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
+                    <div key={item.product.id} className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 border border-line rounded-xl">
+                      <div className="relative w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-lg overflow-hidden">
                         <Image
                           src={item.product.images[0]}
                           alt={item.product.name}
@@ -415,13 +415,13 @@ export default function Checkout() {
                           sizes="64px"
                         />
                       </div>
-                      <div className="flex-1">
-                        <h3 className="font-display text-charcoal">{item.product.name}</h3>
-                        <p className="small text-muted">{item.product.size}</p>
-                        <p className="small text-muted">Quantity: {item.quantity}</p>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-display text-charcoal text-sm sm:text-base truncate">{item.product.name}</h3>
+                        <p className="small text-muted text-xs">{item.product.size}</p>
+                        <p className="small text-muted text-xs">Quantity: {item.quantity}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold text-gold">
+                        <p className="font-semibold text-gold text-sm sm:text-base">
                           {formatCurrency(item.product.salePrice * item.quantity)}
                         </p>
                       </div>
@@ -430,9 +430,9 @@ export default function Checkout() {
                 </div>
 
                 {/* Shipping Address */}
-                <div className="border-t border-line pt-6">
-                  <h3 className="font-display text-charcoal mb-3">Shipping Address</h3>
-                  <div className="text-muted">
+                <div className="border-t border-line pt-4 sm:pt-6">
+                  <h3 className="font-display text-charcoal mb-2 sm:mb-3 text-base sm:text-lg">Shipping Address</h3>
+                  <div className="text-muted text-sm sm:text-base">
                     <p>{customerDetails.name}</p>
                     <p>{customerDetails.address}</p>
                     <p>{customerDetails.city}, {customerDetails.state} - {customerDetails.pincode}</p>
@@ -440,7 +440,7 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex space-x-4">
+                <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <button
                     onClick={() => setCurrentStep(1)}
                     className="flex-1 btn-outline"
@@ -458,39 +458,39 @@ export default function Checkout() {
             )}
 
             {currentStep === 3 && (
-              <div className="bg-white border border-line rounded-2xl p-6">
-                <h2 className="font-display text-xl text-charcoal mb-6">
+              <div className="bg-white border border-line rounded-2xl p-4 sm:p-6">
+                <h2 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6">
                   Secure Payment
                 </h2>
 
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield size={32} className="text-charcoal" />
+                <div className="text-center mb-4 sm:mb-6">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <Shield size={24} className="text-charcoal sm:w-8 sm:h-8" />
                   </div>
-                  <h3 className="font-display text-lg text-charcoal mb-2">
+                  <h3 className="font-display text-base sm:text-lg text-charcoal mb-2">
                     Secure Payment with Razorpay
                   </h3>
-                  <p className="text-muted">
+                  <p className="text-muted text-sm sm:text-base">
                     Your payment information is encrypted and secure. We accept all major credit cards, debit cards, UPI, and net banking.
                   </p>
                 </div>
 
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="small text-muted">256-bit SSL encryption</span>
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-success rounded-full flex-shrink-0"></div>
+                    <span className="small text-muted text-xs sm:text-sm">256-bit SSL encryption</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="small text-muted">PCI DSS compliant</span>
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-success rounded-full flex-shrink-0"></div>
+                    <span className="small text-muted text-xs sm:text-sm">PCI DSS compliant</span>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-success rounded-full"></div>
-                    <span className="small text-muted">RBI approved payment gateway</span>
+                  <div className="flex items-center space-x-2 sm:space-x-3">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-success rounded-full flex-shrink-0"></div>
+                    <span className="small text-muted text-xs sm:text-sm">RBI approved payment gateway</span>
                   </div>
                 </div>
 
-                <div className="flex space-x-4">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <button
                     onClick={() => setCurrentStep(2)}
                     className="flex-1 btn-outline"
@@ -511,19 +511,19 @@ export default function Checkout() {
 
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24">
-              <div className="bg-alabaster rounded-2xl p-6">
-                <h2 className="font-display text-xl text-charcoal mb-6">
+            <div className="lg:sticky lg:top-24">
+              <div className="bg-alabaster rounded-2xl p-4 sm:p-6">
+                <h2 className="font-display text-lg sm:text-xl text-charcoal mb-4 sm:mb-6">
                   Order Summary
                 </h2>
 
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between small">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                  <div className="flex justify-between small text-xs sm:text-sm">
                     <span className="text-muted">Subtotal</span>
                     <span className="font-medium">{formatCurrency(subtotal)}</span>
                   </div>
                   
-                  <div className="flex justify-between small">
+                  <div className="flex justify-between small text-xs sm:text-sm">
                     <span className="text-muted">Shipping</span>
                     <span className="font-medium">
                       {shipping === 0 ? 'Free' : formatCurrency(shipping)}
@@ -531,19 +531,19 @@ export default function Checkout() {
                   </div>
                   
                   {shipping === 0 && subtotal >= 1000 && (
-                    <div className="text-xs text-green-600 font-medium">
+                    <div className="text-[10px] sm:text-xs text-green-600 font-medium">
                       Free shipping on orders above ₹1,000
                     </div>
                   )}
                   
                   {!customerDetails.pincode && shipping > 0 && (
-                    <div className="text-xs text-muted">
+                    <div className="text-[10px] sm:text-xs text-muted">
                       Enter pincode to calculate exact shipping charges
                     </div>
                   )}
                   
-                  <div className="border-t border-line pt-3">
-                    <div className="flex justify-between text-lg font-semibold">
+                  <div className="border-t border-line pt-2 sm:pt-3">
+                    <div className="flex justify-between text-base sm:text-lg font-semibold">
                       <span>Total</span>
                       <span className="text-gold">{formatCurrency(total)}</span>
                     </div>
@@ -552,13 +552,13 @@ export default function Checkout() {
 
                 {/* Security Badges */}
                 <div className="text-center">
-                  <div className="flex items-center justify-center space-x-4 small text-muted mb-4">
+                  <div className="flex items-center justify-center space-x-3 sm:space-x-4 small text-muted mb-4 text-xs">
                     <div className="flex items-center">
-                      <Shield size={12} className="mr-1" />
+                      <Shield size={10} className="mr-1 sm:w-3 sm:h-3" />
                       <span>Secure</span>
                     </div>
                     <div className="flex items-center">
-                      <Truck size={12} className="mr-1" />
+                      <Truck size={10} className="mr-1 sm:w-3 sm:h-3" />
                       <span>Fast Delivery</span>
                     </div>
                   </div>

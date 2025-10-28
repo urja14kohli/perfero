@@ -373,7 +373,7 @@ function FAQSection() {
     },
     {
       question: 'How long does the fragrance last?',
-      answer: 'Each Perféro fragrance is formulated to last 6-8 hours on the skin. The longevity may vary based on your skin type, temperature, and application method. For best results, apply to pulse points like wrists and neck after showering when your skin is slightly damp.'
+      answer: 'Each Perféro fragrance is formulated to last up to 24 hours on the skin. The longevity may vary based on your skin type, temperature, and application method. For best results, apply to pulse points like wrists and neck after showering when your skin is slightly damp.'
     },
     {
       question: 'What size are the bottles in the gift pack?',
@@ -413,11 +413,11 @@ function FAQSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 auto-rows-max">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white border border-line rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              className="bg-white border border-line rounded-2xl shadow-card overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col"
             >
               <button
                 onClick={() => setOpenFAQ(openFAQ === index ? null : index)}

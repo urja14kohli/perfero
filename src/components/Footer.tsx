@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -25,12 +25,6 @@ const Footer = () => {
       { name: 'Returns & Refund Policy', href: '/refund' },
     ],
   };
-
-  const socialLinks = [
-    { name: 'Instagram', href: '#', icon: Instagram },
-    { name: 'Facebook', href: '#', icon: Facebook },
-    { name: 'Twitter', href: '#', icon: Twitter },
-  ];
 
   return (
     <footer className="bg-ink text-ivory">
@@ -69,23 +63,6 @@ const Footer = () => {
                   +91 9821209804
                 </a>
               </div>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex space-x-3 sm:space-x-4 mt-4 sm:mt-6">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    className="p-2 text-ivory/80 hover:text-gold transition-colors duration-300"
-                    aria-label={social.name}
-                  >
-                    <Icon size={18} className="sm:w-5 sm:h-5" />
-                  </a>
-                );
-              })}
             </div>
           </div>
 
@@ -142,7 +119,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="border-t border-line/20 pt-6 sm:pt-8 mt-6 sm:mt-8">
+        <div className="pt-6 sm:pt-8 mt-6 sm:mt-8">
           <div className="max-w-md mx-auto text-center">
             <h3 className="font-display text-base sm:text-lg text-ivory mb-1.5 sm:mb-2">
               Stay in the Loop

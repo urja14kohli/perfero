@@ -59,7 +59,7 @@ export const createRazorpayOptions = (
       contact: customerDetails.phone,
     },
     theme: {
-      color: '#D4AF37', // Gold color
+      color: '#C8A85D', // Perféro brand gold
     },
     notes: {
       order_id: orderId,
@@ -107,16 +107,9 @@ export const formatCurrency = (amount: number): string => {
   }).format(amount);
 };
 
-// Calculate shipping
-export const calculateShipping = (totalAmount: number): number => {
-  // Free shipping for orders above ₹1000
-  if (totalAmount >= 1000) {
-    return 0;
-  }
-  return 50; // Standard shipping charge
-};
-
-// Calculate total with shipping
-export const calculateTotal = (subtotal: number): number => {
-  return subtotal + calculateShipping(subtotal);
-};
+// Re-export shipping functions from shipping.ts
+export { 
+  calculateShipping, 
+  calculateTotal,
+  determineShippingZone 
+} from './shipping';

@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { ArrowLeft, Check, CreditCard, Truck, Shield } from 'lucide-react';
 import { useCartStore } from '@/lib/cart';
-import { formatCurrency, calculateShipping, calculateTotal } from '@/lib/razorpay';
+import { formatCurrency } from '@/lib/razorpay';
+import { calculateShipping, calculateTotal } from '@/lib/shipping';
 import { loadRazorpayScript, createRazorpayOptions } from '@/lib/razorpay';
 
 interface CustomerDetails {
@@ -38,8 +39,18 @@ export default function Checkout() {
   const [errors, setErrors] = useState<Partial<CustomerDetails>>({});
 
   const subtotal = getTotalPrice();
-  const shipping = calculateShipping(subtotal);
-  const total = calculateTotal(subtotal);
+  const shipping = calculateShipping(
+    subtotal,
+    customerDetails.pincode,
+    customerDetails.city,
+    customerDetails.state
+  );
+  const total = calculateTotal(
+    subtotal,
+    customerDetails.pincode,
+    customerDetails.city,
+    customerDetails.state
+  );
 
   useEffect(() => {
     if (items.length === 0) {
@@ -188,23 +199,23 @@ export default function Checkout() {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-ivory">
       {/* Header */}
-      <div className="bg-primary-cream py-8">
-        <div className="container-max section-padding">
+      <div className="bg-alabaster py-8">
+        <div className="container-luxury">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-semibold font-bold text-black mb-2">
+              <h1 className="font-display text-display-lg text-charcoal mb-2">
                 Checkout
               </h1>
-              <p className="text-gray-600">
+              <p className="text-muted">
                 Complete your order securely
               </p>
             </div>
             
             <button
               onClick={() => router.back()}
-              className="flex items-center text-gray-600 hover:text-yellow-500 transition-colors duration-200"
+              className="flex items-center text-muted hover:text-gold transition-colors duration-200"
             >
               <ArrowLeft size={16} className="mr-2" />
               Back
@@ -213,7 +224,7 @@ export default function Checkout() {
         </div>
       </div>
 
-      <div className="container-max section-padding py-8">
+      <div className="container-luxury py-8">
         {/* Progress Steps */}
         <div className="mb-8">
           <div className="flex items-center justify-center space-x-8">
@@ -226,21 +237,21 @@ export default function Checkout() {
                 <div key={step.id} className="flex items-center">
                   <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors duration-200 ${
                     isCompleted 
-                      ? 'bg-yellow-500 border-yellow-500 text-black' 
+                      ? 'bg-gold border-gold text-charcoal' 
                       : isActive 
-                        ? 'border-yellow-500 text-yellow-500' 
-                        : 'border-gray-300 text-gray-400'
+                        ? 'border-gold text-gold' 
+                        : 'border-line text-muted'
                   }`}>
                     <Icon size={16} />
                   </div>
-                  <span className={`ml-2 text-sm font-medium ${
-                    isActive ? 'text-black' : 'text-gray-500'
+                  <span className={`ml-2 small font-medium ${
+                    isActive ? 'text-charcoal' : 'text-muted'
                   }`}>
                     {step.name}
                   </span>
                   {index < steps.length - 1 && (
                     <div className={`w-8 h-0.5 ml-4 ${
-                      isCompleted ? 'bg-yellow-500' : 'bg-gray-300'
+                      isCompleted ? 'bg-gold' : 'bg-line'
                     }`} />
                   )}
                 </div>
@@ -253,22 +264,22 @@ export default function Checkout() {
           {/* Main Content */}
           <div className="lg:col-span-2">
             {currentStep === 1 && (
-              <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h2 className="text-xl font-semibold text-black mb-6">
+              <div className="bg-white border border-line rounded-2xl p-6">
+                <h2 className="font-display text-xl text-charcoal mb-6">
                   Shipping Information
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
                       value={customerDetails.name}
                       onChange={(e) => handleInputChange('name', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.name ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.name ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your full name"
                     />
@@ -276,15 +287,15 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       Email Address *
                     </label>
                     <input
                       type="email"
                       value={customerDetails.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.email ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your email"
                     />
@@ -292,15 +303,15 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       value={customerDetails.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.phone ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your phone number"
                     />
@@ -308,30 +319,32 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       Pincode *
                     </label>
                     <input
                       type="text"
                       value={customerDetails.pincode}
                       onChange={(e) => handleInputChange('pincode', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.pincode ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.pincode ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter pincode"
                     />
-                    {errors.pincode && <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>}
+                    {errors.pincode && (
+                      <p className="text-red-500 text-sm mt-1">{errors.pincode}</p>
+                    )}
                   </div>
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       Address *
                     </label>
                     <textarea
                       value={customerDetails.address}
                       onChange={(e) => handleInputChange('address', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.address ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.address ? 'border-red-500' : 'border-line'
                       }`}
                       rows={3}
                       placeholder="Enter your complete address"
@@ -340,15 +353,15 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       City *
                     </label>
                     <input
                       type="text"
                       value={customerDetails.city}
                       onChange={(e) => handleInputChange('city', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.city ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.city ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your city"
                     />
@@ -356,15 +369,15 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block small font-medium text-charcoal mb-2">
                       State *
                     </label>
                     <input
                       type="text"
                       value={customerDetails.state}
                       onChange={(e) => handleInputChange('state', e.target.value)}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-gold focus:border-transparent ${
-                        errors.state ? 'border-red-500' : 'border-gray-300'
+                      className={`w-full px-3 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent ${
+                        errors.state ? 'border-red-500' : 'border-line'
                       }`}
                       placeholder="Enter your state"
                     />
@@ -384,31 +397,31 @@ export default function Checkout() {
             )}
 
             {currentStep === 2 && (
-              <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h2 className="text-xl font-semibold text-black mb-6">
+              <div className="bg-white border border-line rounded-2xl p-6">
+                <h2 className="font-display text-xl text-charcoal mb-6">
                   Review Your Order
                 </h2>
 
                 {/* Order Items */}
                 <div className="space-y-4 mb-6">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg">
-                      <div className="relative w-16 h-16 flex-shrink-0">
+                    <div key={item.product.id} className="flex items-center space-x-4 p-4 border border-line rounded-xl">
+                      <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
                         <Image
                           src={item.product.images[0]}
                           alt={item.product.name}
                           fill
-                          className="object-cover rounded-lg"
+                          className="object-cover"
                           sizes="64px"
                         />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-black">{item.product.name}</h3>
-                        <p className="text-sm text-gray-600">{item.product.size}</p>
-                        <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
+                        <h3 className="font-display text-charcoal">{item.product.name}</h3>
+                        <p className="small text-muted">{item.product.size}</p>
+                        <p className="small text-muted">Quantity: {item.quantity}</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold text-yellow-500">
+                        <p className="font-semibold text-gold">
                           {formatCurrency(item.product.salePrice * item.quantity)}
                         </p>
                       </div>
@@ -417,9 +430,9 @@ export default function Checkout() {
                 </div>
 
                 {/* Shipping Address */}
-                <div className="border-t border-gray-200 pt-6">
-                  <h3 className="font-semibold text-black mb-3">Shipping Address</h3>
-                  <div className="text-gray-600">
+                <div className="border-t border-line pt-6">
+                  <h3 className="font-display text-charcoal mb-3">Shipping Address</h3>
+                  <div className="text-muted">
                     <p>{customerDetails.name}</p>
                     <p>{customerDetails.address}</p>
                     <p>{customerDetails.city}, {customerDetails.state} - {customerDetails.pincode}</p>
@@ -445,35 +458,35 @@ export default function Checkout() {
             )}
 
             {currentStep === 3 && (
-              <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h2 className="text-xl font-semibold text-black mb-6">
+              <div className="bg-white border border-line rounded-2xl p-6">
+                <h2 className="font-display text-xl text-charcoal mb-6">
                   Secure Payment
                 </h2>
 
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield size={32} className="text-black" />
+                  <div className="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield size={32} className="text-charcoal" />
                   </div>
-                  <h3 className="text-lg font-semibold text-black mb-2">
+                  <h3 className="font-display text-lg text-charcoal mb-2">
                     Secure Payment with Razorpay
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-muted">
                     Your payment information is encrypted and secure. We accept all major credit cards, debit cards, UPI, and net banking.
                   </p>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">256-bit SSL encryption</span>
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span className="small text-muted">256-bit SSL encryption</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">PCI DSS compliant</span>
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span className="small text-muted">PCI DSS compliant</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">RBI approved payment gateway</span>
+                    <div className="w-2 h-2 bg-success rounded-full"></div>
+                    <span className="small text-muted">RBI approved payment gateway</span>
                   </div>
                 </div>
 
@@ -499,41 +512,47 @@ export default function Checkout() {
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h2 className="text-xl font-semibold text-black mb-6">
+              <div className="bg-alabaster rounded-2xl p-6">
+                <h2 className="font-display text-xl text-charcoal mb-6">
                   Order Summary
                 </h2>
 
                 <div className="space-y-3 mb-6">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Subtotal</span>
+                  <div className="flex justify-between small">
+                    <span className="text-muted">Subtotal</span>
                     <span className="font-medium">{formatCurrency(subtotal)}</span>
                   </div>
                   
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Shipping</span>
+                  <div className="flex justify-between small">
+                    <span className="text-muted">Shipping</span>
                     <span className="font-medium">
                       {shipping === 0 ? 'Free' : formatCurrency(shipping)}
                     </span>
                   </div>
                   
-                  {shipping === 0 && (
+                  {shipping === 0 && subtotal >= 1000 && (
                     <div className="text-xs text-green-600 font-medium">
-                      🎉 Free shipping on orders above ₹1,000
+                      Free shipping on orders above ₹1,000
                     </div>
                   )}
                   
-                  <div className="border-t border-gray-300 pt-3">
+                  {!customerDetails.pincode && shipping > 0 && (
+                    <div className="text-xs text-muted">
+                      Enter pincode to calculate exact shipping charges
+                    </div>
+                  )}
+                  
+                  <div className="border-t border-line pt-3">
                     <div className="flex justify-between text-lg font-semibold">
                       <span>Total</span>
-                      <span className="text-yellow-500">{formatCurrency(total)}</span>
+                      <span className="text-gold">{formatCurrency(total)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Security Badges */}
                 <div className="text-center">
-                  <div className="flex items-center justify-center space-x-4 text-xs text-gray-500 mb-4">
+                  <div className="flex items-center justify-center space-x-4 small text-muted mb-4">
                     <div className="flex items-center">
                       <Shield size={12} className="mr-1" />
                       <span>Secure</span>

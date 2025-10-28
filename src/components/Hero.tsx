@@ -76,7 +76,8 @@ const Hero = () => {
                 className="shadow-card"
               />
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-charcoal text-ivory text-sm px-4 py-2 rounded-full shadow-card">
-                ₹1,077 only
+                <span className="font-semibold">₹799</span>
+                <span className="text-xs line-through opacity-70 ml-2">₹1,077</span>
               </div>
             </div>
           </motion.div>

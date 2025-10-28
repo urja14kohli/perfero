@@ -17,12 +17,12 @@ export interface Product {
 }
 
 export const products: Product[] = [
-  // Single Bottles (50ml) - ₹1,500 → ₹700
+  // Single Bottles (50ml) - ₹1,500 → ₹699
   {
     id: 'orka',
     name: 'Orka',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/1.jpeg'],
     description: 'A bold and warm fragrance that captures great style. Orka combines rich, warm notes to create a memorable scent experience.',
@@ -39,7 +39,7 @@ export const products: Product[] = [
     id: 'gildara',
     name: 'Gildara',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/2.jpeg'],
     description: 'An electrifying blend that sparkles with energy. Gildara brings together fresh and vibrant notes for a modern, dynamic fragrance.',
@@ -56,7 +56,7 @@ export const products: Product[] = [
     id: 'indiglo',
     name: 'Indiglo',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/3.jpeg'],
     description: 'Clean and classic, Indiglo embodies timeless style. This fragrance is perfect for those who appreciate classic elegance.',
@@ -73,7 +73,7 @@ export const products: Product[] = [
     id: 'vermelia',
     name: 'Vermelia',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/4.jpeg'],
     description: 'A fresh and aquatic fragrance that captures the essence of ocean breezes. Vermelia is perfect for everyday elegance.',
@@ -90,7 +90,7 @@ export const products: Product[] = [
     id: 'olivaire',
     name: 'Olivaire',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/5.jpeg'],
     description: 'Deep and mysterious, Olivaire is a rich fragrance that commands attention. Perfect for evening wear and special occasions.',
@@ -107,7 +107,7 @@ export const products: Product[] = [
     id: 'blau',
     name: 'Blau',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/6.jpeg'],
     description: 'Fresh and green, Blau captures the essence of nature. This vibrant fragrance is perfect for those who love fresh, natural scents.',
@@ -124,7 +124,7 @@ export const products: Product[] = [
     id: 'rouviere',
     name: 'Rouvière',
     price: 1500,
-    salePrice: 700,
+    salePrice: 699,
     size: '50ml',
     images: ['/images/bottles/7.jpeg'],
     description: 'Dark and mysterious, Rouvière is a bold fragrance for modern people. Rich, complex, and memorable.',
@@ -138,12 +138,12 @@ export const products: Product[] = [
     featured: true
   },
   
-  // Gift Pack (7x10ml) - ₹1,077
+  // Gift Pack (7x10ml) - ₹799 (discounted from ₹1,077)
   {
     id: 'perfero-gift-pack',
     name: 'Perféro Signature Gift Pack',
     price: 1077,
-    salePrice: 1077,
+    salePrice: 799,
     size: '7x10ml',
     images: [
       '/images/gift-pack/pack front.jpeg'

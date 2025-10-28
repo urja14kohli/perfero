@@ -79,7 +79,10 @@ const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-gold text-charcoal px-6 py-3 rounded-full text-lg font-semibold shadow-card">
-              Only ₹1,077
+              <div className="text-center">
+                <div className="font-semibold">₹799</div>
+                <div className="text-xs line-through opacity-70">₹1,077</div>
+              </div>
             </div>
           </motion.div>
         </div>

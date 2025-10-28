@@ -14,7 +14,7 @@ export default function ImageStage({ src, alt, className, maskEdges = true }: Pr
     <figure
       className={clsx(
         // unified stage
-        "relative rounded-2xl bg-[#F6F1E6] overflow-hidden",
+        "relative rounded-xl bg-[#F6F1E6] overflow-hidden",
         // aspect ratios
         "aspect-[4/5] lg:aspect-square",
         // inner lighting
@@ -34,10 +34,13 @@ export default function ImageStage({ src, alt, className, maskEdges = true }: Pr
         sizes="(min-width:1024px) 420px, 60vw"
         className={clsx(
           "object-contain p-4 md:p-6",
-          // TEMPORARY edge mask for JPGs with their own background:
-          maskEdges &&
-            "[mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]"
+          // Remove mask to show rounded corners clearly
+          // maskEdges &&
+          //   "[mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]"
         )}
+        style={{
+          borderRadius: 'inherit'
+        }}
         priority={false}
       />
     </figure>

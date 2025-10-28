@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { X, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCartStore } from '@/lib/cart';
 import { formatCurrency } from '@/lib/razorpay';
+import { calculateShipping, calculateTotal } from '@/lib/shipping';
 
 const Cart = () => {
   const {
@@ -19,8 +20,8 @@ const Cart = () => {
   } = useCartStore();
 
   const totalPrice = getTotalPrice();
-  const shipping = totalPrice >= 1000 ? 0 : 50;
-  const finalTotal = totalPrice + shipping;
+  const shipping = calculateShipping(totalPrice); // No pincode available in cart sidebar
+  const finalTotal = calculateTotal(totalPrice);
 
   if (!isOpen) return null;
 
@@ -36,13 +37,13 @@ const Cart = () => {
       <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl transform transition-transform duration-300 ease-in-out">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-xl font-semibold text-black">
+          <div className="flex items-center justify-between p-6 border-b border-line">
+            <h2 className="font-display text-xl text-charcoal">
               Shopping Cart ({items.length})
             </h2>
             <button
               onClick={closeCart}
-              className="p-2 hover:bg-gray-100 rounded-full transition-colors duration-200"
+              className="p-2 hover:bg-alabaster rounded-full transition-colors duration-200"
             >
               <X size={20} />
             </button>
@@ -52,11 +53,11 @@ const Cart = () => {
           <div className="flex-1 overflow-y-auto p-6">
             {items.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
-                <ShoppingBag size={48} className="text-gray-300 mb-4" />
-                <h3 className="text-lg font-medium text-gray-600 mb-2">
+                <ShoppingBag size={48} className="text-muted mb-4" />
+                <h3 className="font-display text-lg text-charcoal mb-2">
                   Your cart is empty
                 </h3>
-                <p className="text-gray-500 mb-6">
+                <p className="text-muted mb-6">
                   Add some products to get started
                 </p>
                 <Link
@@ -72,28 +73,28 @@ const Cart = () => {
                 {items.map((item) => (
                   <div
                     key={item.product.id}
-                    className="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg"
+                    className="flex items-center space-x-4 p-4 border border-line rounded-xl"
                   >
                     {/* Product Image */}
-                    <div className="relative w-16 h-16 flex-shrink-0">
+                    <div className="relative w-16 h-16 flex-shrink-0 rounded-lg overflow-hidden">
                       <Image
                         src={item.product.images[0]}
                         alt={item.product.name}
                         fill
-                        className="object-cover rounded-md"
+                        className="object-cover"
                         sizes="64px"
                       />
                     </div>
 
                     {/* Product Info */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-medium text-black truncate">
+                      <h3 className="font-display text-charcoal truncate">
                         {item.product.name}
                       </h3>
-                      <p className="text-sm text-gray-600">
+                      <p className="small text-muted">
                         {item.product.size}
                       </p>
-                      <p className="text-sm font-semibold text-yellow-500">
+                      <p className="small font-semibold text-gold">
                         {formatCurrency(item.product.salePrice)}
                       </p>
                     </div>
@@ -102,7 +103,7 @@ const Cart = () => {
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                        className="p-1 hover:bg-alabaster rounded-full transition-colors duration-200"
                       >
                         <Minus size={16} />
                       </button>
@@ -111,7 +112,7 @@ const Cart = () => {
                       </span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="p-1 hover:bg-gray-100 rounded-full transition-colors duration-200"
+                        className="p-1 hover:bg-alabaster rounded-full transition-colors duration-200"
                       >
                         <Plus size={16} />
                       </button>
@@ -132,27 +133,27 @@ const Cart = () => {
 
           {/* Footer */}
           {items.length > 0 && (
-            <div className="border-t border-gray-200 p-6 space-y-4">
+            <div className="border-t border-line p-6 space-y-4">
               {/* Order Summary */}
               <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Subtotal</span>
+                <div className="flex justify-between small">
+                  <span className="text-muted">Subtotal</span>
                   <span className="font-medium">{formatCurrency(totalPrice)}</span>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Shipping</span>
+                <div className="flex justify-between small">
+                  <span className="text-muted">Shipping</span>
                   <span className="font-medium">
                     {shipping === 0 ? 'Free' : formatCurrency(shipping)}
                   </span>
                 </div>
                 {shipping === 0 && (
-                  <div className="text-xs text-green-600 font-medium">
-                    🎉 Free shipping on orders above ₹1,000
+                  <div className="text-xs text-success font-medium">
+                    Free shipping on orders above ₹1,000
                   </div>
                 )}
-                <div className="flex justify-between text-lg font-semibold border-t border-gray-200 pt-2">
+                <div className="flex justify-between text-lg font-semibold border-t border-line pt-2">
                   <span>Total</span>
-                  <span className="text-yellow-500">{formatCurrency(finalTotal)}</span>
+                  <span className="text-gold">{formatCurrency(finalTotal)}</span>
                 </div>
               </div>
 
@@ -174,7 +175,7 @@ const Cart = () => {
                 </Link>
                 <button
                   onClick={clearCart}
-                  className="w-full text-sm text-gray-500 hover:text-red-500 transition-colors duration-200"
+                  className="w-full small text-muted hover:text-red-500 transition-colors duration-200"
                 >
                   Clear Cart
                 </button>

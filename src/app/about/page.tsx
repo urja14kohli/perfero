@@ -54,7 +54,7 @@ export default function About() {
                   src="/images/gift-pack/pack front.jpeg"
                   alt="Perféro Signature Gift Pack"
                   fill
-                  className="object-cover rounded-2xl shadow-card"
+                  className="object-cover rounded-lg shadow-card"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>

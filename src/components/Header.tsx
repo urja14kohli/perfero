@@ -22,7 +22,7 @@ const Header = () => {
       <div className="container-luxury">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo & Brand - Left */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+          <Link href="/" className="flex items-center space-x-1 sm:space-x-1 flex-shrink-0">
             <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
               <Image
                 src="/images/perfero logo.png"

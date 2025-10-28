@@ -24,7 +24,9 @@ export const metadata: Metadata = {
   keywords: "perfume, fragrance collection, gift set, quality scents, Perféro",
   authors: [{ name: "Perféro" }],
   icons: {
-    icon: '/images/perfero logo.png',
+    icon: [
+      { url: '/images/perfero logo.png', type: 'image/png' }
+    ],
     apple: '/images/perfero logo.png',
   },
   openGraph: {

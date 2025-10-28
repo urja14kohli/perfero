@@ -37,7 +37,7 @@ export default function LegalLayout({ title, updated, children, sections }: Lega
   };
 
   return (
-    <div className="bg-ivory">
+    <div className="bg-ivory font-sans">
       <section className="max-w-[1040px] mx-auto px-5 sm:px-6 py-10 sm:py-14 md:py-20 grid grid-cols-1 md:grid-cols-[260px_minmax(0,1fr)] gap-6 md:gap-10">
         {/* Sidebar TOC */}
         <aside className="hidden md:block sticky top-24 h-fit">
@@ -98,12 +98,13 @@ export default function LegalLayout({ title, updated, children, sections }: Lega
               prose-h2:text-[22px] prose-h2:sm:text-[24px] prose-h2:md:text-[26px] prose-h2:font-medium prose-h2:leading-[1.35]
               prose-h2:mt-10 prose-h2:mb-6 prose-h2:border-b prose-h2:border-line/40 prose-h2:pb-3
               prose-h3:text-[17px] prose-h3:sm:text-[18px] prose-h3:font-medium prose-h3:text-charcoal/90 prose-h3:mt-8 prose-h3:mb-2
-              prose-p:text-[15.5px] prose-p:leading-[1.9] prose-p:text-charcoal/80 prose-p:mt-4 prose-p:mb-5
+              prose-p:text-[15.5px] prose-p:leading-[1.9] prose-p:text-charcoal/80 prose-p:mt-6 prose-ul:mt-6 prose-ul:pl-8 prose-li:mb-2 list-disc list-outside
               prose-ul:text-[15.5px] prose-ul:leading-[1.9] prose-ul:text-charcoal/80 prose-ul:mt-4 prose-ul:mb-6
               prose-ol:text-[15.5px] prose-ol:leading-[1.9] prose-ol:text-charcoal/80 prose-ol:mt-4 prose-ol:mb-6
               prose-li:my-0 prose-li:pl-1 prose-li:mb-4
               prose-strong:font-medium prose-strong:text-base prose-strong:text-charcoal
               prose-a:text-gold hover:prose-a:text-gold-deep prose-a:underline-offset-4
+              prose-h2:mb-8 prose-h3:mb-6
             "
           >
             {children}

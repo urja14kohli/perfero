@@ -21,9 +21,9 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-ivory/80 backdrop-blur-xl border-b border-line/70">
       <div className="container-luxury">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10">
+          {/* Logo & Brand - Left */}
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12">
               <Image
                 src="/images/perfero logo.png"
                 alt="Perféro Logo"
@@ -32,25 +32,25 @@ const Header = () => {
                 priority
               />
             </div>
-            <div className="text-xl sm:text-2xl font-display font-semibold text-gold">
+            <div className="text-xl sm:text-2xl md:text-3xl font-display font-semibold text-gold leading-none">
               Perféro
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          {/* Desktop Navigation - Center */}
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 absolute left-1/2 transform -translate-x-1/2">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-charcoal hover:text-gold transition-colors duration-300 font-medium small"
+                className="text-charcoal hover:text-gold transition-colors duration-300 font-medium text-sm"
               >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* Right Side Actions */}
+          {/* Right Side Actions - Right */}
           <div className="flex items-center gap-2">
             {/* Cart Button */}
             <button

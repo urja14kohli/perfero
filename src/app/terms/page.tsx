@@ -1,324 +1,146 @@
-import LegalLayout from '@/components/LegalLayout';
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: 'Terms of Service • PERFÉRO',
-  description: 'Terms and conditions for using PERFÉRO Fragrance website and purchasing our products.',
+export const metadata: Metadata = {
+  title: "Terms of Service | PERFÉRO FRAGRANCE",
+  description:
+    "Terms of Service for PERFÉRO FRAGRANCE governing use of our website and purchases.",
+  robots: { index: true, follow: true },
 };
 
 export default function TermsPage() {
-  const updated = '28 October 2025';
-  
-  const sections = [
-    { id: 'intro', label: 'Introduction' },
-    { id: 'eligibility', label: 'Eligibility' },
-    { id: 'products', label: 'Products & Pricing' },
-    { id: 'orders', label: 'Orders & Payment' },
-    { id: 'shipping', label: 'Shipping & Delivery' },
-    { id: 'returns', label: 'Returns & Refunds' },
-    { id: 'intellectual', label: 'Intellectual Property' },
-    { id: 'prohibited', label: 'Prohibited Uses' },
-    { id: 'warranties', label: 'Warranties & Liability' },
-    { id: 'indemnification', label: 'Indemnification' },
-    { id: 'governing', label: 'Governing Law' },
-    { id: 'disputes', label: 'Dispute Resolution' },
-    { id: 'changes', label: 'Changes to Terms' },
-    { id: 'contact', label: 'Contact Us' },
-  ];
-
   return (
-    <LegalLayout title="Terms of Service" updated={updated} sections={sections}>
-      <h2 id="intro">Introduction</h2>
-      <p>
-        Welcome to PERFÉRO Fragrance. These Terms of Service ("Terms") govern your access to and use of 
-        our website <a href="https://www.perferofragrance.com">www.perferofragrance.com</a> and the purchase 
-        of products from us. By accessing or using our website, you agree to be bound by these Terms.
-      </p>
-      <p>
-        Please read these Terms carefully before using our services. If you do not agree with any part of 
-        these Terms, you must not use our website or purchase our products.
-      </p>
+    <main className="mx-auto max-w-3xl px-5 py-16 leading-7 text-neutral-800">
+      <header className="mb-10">
+        <h1 className="text-2xl font-semibold tracking-tight text-neutral-900">
+          Terms of Service
+        </h1>
+        <p className="mt-2 text-sm text-neutral-500">
+          Effective: <span className="font-medium">28 Oct 2025</span> · Last updated:{" "}
+          <span className="font-medium">28 Oct 2025</span>
+        </p>
+      </header>
 
-      <h2 id="eligibility">Eligibility</h2>
-      <p>
-        To use our website and purchase products, you must:
-      </p>
-      <ul>
-        <li>Be at least 18 years of age or have the consent of a parent or legal guardian</li>
-        <li>Have the legal capacity to enter into a binding contract</li>
-        <li>Provide accurate, current, and complete information during registration and checkout</li>
-        <li>Not be prohibited from using our services under applicable law</li>
-      </ul>
-      <p>
-        By placing an order, you represent and warrant that you meet all eligibility requirements.
-      </p>
+      <section className="[&_h2]:mt-10 [&_h2]:text-lg [&_h2]:font-semibold [&_p]:mt-3 [&_ul]:mt-3 [&_li]:mt-2">
+        <p className="text-sm text-neutral-600">
+          Welcome to <span className="font-medium">Perféro</span>. These Terms of Service ("Terms") govern
+          your access to and use of our website at{" "}
+          <span className="font-medium">https://www.perferofragrance.com</span> (the "Site"), and any related services
+          we provide. By accessing or using our Site, you agree to be bound by these Terms and our{" "}
+          <a href="/privacy" className="underline hover:text-gold transition-colors">
+            Privacy Policy
+          </a>. If you do not agree with any part of these Terms, you may not use our services.
+        </p>
 
-      <h2 id="products">Products & Pricing</h2>
-      
-      <h3>Product Information</h3>
-      <p>
-        We strive to provide accurate descriptions, images, and information about our fragrance products. 
-        However, we do not warrant that product descriptions, colors, or other content are accurate, complete, 
-        or error-free. We reserve the right to correct any errors or inaccuracies and update information at 
-        any time without prior notice.
-      </p>
+        <h2>1) Company Information</h2>
+        <p>
+          The Site is operated by <span className="font-medium">7 ACE EXIM LLP</span>,
+          a limited liability partnership registered in India. References to "we", "our", "us", or "Perféro" in these Terms refer to this legal entity. For inquiries about our company, please contact us at the email addresses provided in the Contact section below.
+        </p>
 
-      <h3>Pricing</h3>
-      <ul>
-        <li>All prices are listed in Indian Rupees (INR) and are inclusive of applicable taxes unless otherwise stated</li>
-        <li>Prices are subject to change without notice, but changes will not affect orders already placed</li>
-        <li>We reserve the right to modify prices, discontinue products, or refuse orders at our discretion</li>
-        <li>In case of a pricing error, we will contact you before processing your order</li>
-      </ul>
+        <h2>2) Eligibility</h2>
+        <p>
+          You must be at least <span className="font-medium">18 years old</span> to make purchases or create an account on our Site. By using the Site, you represent and warrant that you meet this age requirement. If you are under 18, please have a parent or guardian complete any transactions on your behalf.
+        </p>
 
-      <h3>Product Availability</h3>
-      <p>
-        Product availability is subject to change. While we make every effort to keep our inventory updated, 
-        items may become unavailable after you place an order. In such cases, we will notify you and offer a 
-        refund or alternative product.
-      </p>
+        <h2>3) Use of the Site</h2>
+        <ul className="list-disc pl-6">
+          <li>You agree to use the Site only for lawful purposes and in accordance with these Terms and all applicable laws and regulations.</li>
+          <li>
+            You must not: (a) introduce viruses, malware, or any code designed to disrupt or disable the Site; (b) attempt to gain unauthorized access to the Site or its systems; (c) interfere with other users' access to or enjoyment of the Site; or (d) engage in any form of harassment or abuse directed at other users or our staff.
+          </li>
+          <li>
+            We reserve the right to suspend or permanently terminate your access to the Site if we reasonably believe you have violated these Terms or engaged in any unlawful activity.
+          </li>
+        </ul>
 
-      <h2 id="orders">Orders & Payment</h2>
-      
-      <h3>Placing an Order</h3>
-      <p>
-        When you place an order through our website, you are making an offer to purchase products at the 
-        stated price. We reserve the right to accept or decline your order for any reason, including but 
-        not limited to product availability, errors in pricing or product information, or suspected fraudulent 
-        activity.
-      </p>
-      <p>
-        An order confirmation email does not constitute acceptance of your order. Acceptance occurs when we 
-        dispatch the products to you, at which point a contract is formed between you and PERFÉRO Fragrance.
-      </p>
+        <h2>4) Product Information & Availability</h2>
+        <p>
+          We make every effort to ensure that product descriptions, images, specifications, and pricing displayed on the Site are accurate and up-to-date. However, we cannot guarantee complete accuracy and minor variations or discrepancies may occur. Product availability is subject to change without notice. We reserve the right to limit quantities per order and to discontinue any product at our discretion.
+        </p>
 
-      <h3>Payment</h3>
-      <ul>
-        <li>
-          Payment is processed securely through our payment partner Razorpay, which supports credit cards, 
-          debit cards, UPI, net banking, and other payment methods
-        </li>
-        <li>Payment must be received in full before orders are dispatched</li>
-        <li>All transactions are subject to validation and authorization by your payment provider</li>
-        <li>We do not store your payment card information; this is handled securely by Razorpay</li>
-        <li>In case of payment failure, your order will not be processed</li>
-      </ul>
+        <h2>5) Orders & Payment</h2>
+        <ul className="list-disc pl-6">
+          <li>
+            When you place an order, you provide an offer to purchase the specified products. Submission of an order does not guarantee acceptance. We will send you a confirmation email when your order is accepted.
+          </li>
+          <li>
+            We reserve the right to accept, reject, cancel, or suspend any order for any reason, including but not limited to: pricing errors, suspected fraudulent activity, suspected money laundering, product unavailability, or violations of these Terms.
+          </li>
+          <li>
+            Payments are securely processed through <span className="font-medium">Razorpay</span>, our authorized payment partner. We do not store complete credit card information on our servers. By making a payment, you authorize the transaction and agree to Razorpay's terms of service.
+          </li>
+        </ul>
 
-      <h3>Order Cancellation</h3>
-      <p>
-        You may cancel your order before it is dispatched by contacting us at <a href="mailto:support@perferofragrance.com">support@perferofragrance.com</a>. 
-        Once an order has been dispatched, our Returns & Refunds policy applies.
-      </p>
+        <h2>6) Pricing & Taxes</h2>
+        <p>
+          All prices on the Site are displayed in <span className="font-medium">Indian Rupees (INR)</span> and include all applicable Goods and Services Tax (GST) and other taxes unless explicitly stated otherwise. Shipping and handling fees, if applicable, are calculated and displayed separately during the checkout process. We are not responsible for any additional customs duties, import taxes, or fees that may be imposed by third parties or your country of residence.
+        </p>
 
-      <h2 id="shipping">Shipping & Delivery</h2>
-      
-      <h3>Shipping Areas</h3>
-      <p>
-        We currently ship to addresses within India only. Please ensure your shipping address is complete 
-        and accurate, as we are not responsible for orders shipped to incorrect addresses provided by you.
-      </p>
+        <h2>7) Shipping & Delivery</h2>
+        <p>
+          Orders are shipped to the address you provide during checkout. Delivery timeframes are estimates based on typical carrier schedules and may vary due to location, logistics, weather, or external factors beyond our control. We are not responsible for delays caused by third-party carriers, customs delays, or other circumstances beyond our reasonable control. For detailed shipping information, please refer to our <a href="/shipping" className="underline hover:text-gold transition-colors">Shipping Information</a> page.
+        </p>
 
-      <h3>Shipping Costs & Timing</h3>
-      <ul>
-        <li>Standard shipping is FREE on all orders above ₹1,000</li>
-        <li>Orders below ₹1,000 are subject to a standard shipping fee calculated at checkout</li>
-        <li>Orders are typically dispatched within 2-4 business days (Monday-Friday, excluding public holidays)</li>
-        <li>Estimated delivery times are 5-7 business days for most locations, though actual delivery may vary</li>
-        <li>Remote or rural areas may experience longer delivery times</li>
-      </ul>
+        <h2>8) Returns, Exchanges & Refunds</h2>
+        <p>
+          Return, exchange, and refund eligibility and procedures are governed by our <a href="/refund" className="underline hover:text-gold transition-colors">Returns & Refund Policy</a>. Due to hygiene and safety considerations, opened or used perfumes, testers, and gift sets may not be eligible for return. Please review our complete policy for all eligibility criteria and procedures.
+        </p>
 
-      <h3>Risk of Loss</h3>
-      <p>
-        Risk of loss and title for products pass to you upon delivery to the shipping carrier. We are not 
-        responsible for lost or stolen packages confirmed to be delivered to the address provided at checkout.
-      </p>
+        <h2>9) Intellectual Property</h2>
+        <p>
+          All content on the Site—including but not limited to text, images, logos, graphics, photographs, videos, and code—is owned by or licensed to <span className="font-medium">Perféro</span> and is protected by applicable intellectual property laws. You agree not to reproduce, modify, distribute, transmit, republish, display, or perform any of this content without obtaining our prior written permission, except for personal, non-commercial viewing and downloading for your own use.
+        </p>
 
-      <h2 id="returns">Returns & Refunds</h2>
-      <p>
-        Please refer to our <a href="/refund">Refund & Returns Policy</a> for detailed information about 
-        returning products and obtaining refunds. Key points include:
-      </p>
-      <ul>
-        <li>30-day return window from date of delivery</li>
-        <li>Products must be unused, sealed, and in original packaging</li>
-        <li>Proof of purchase required</li>
-        <li>Certain items are non-returnable (opened bottles, gift cards, final sale items)</li>
-      </ul>
+        <h2>10) User Content</h2>
+        <p>
+          If you submit reviews, testimonials, comments, photographs, or other materials on the Site ("User Content"), you grant Perféro a non-exclusive, royalty-free, perpetual, and worldwide license to use, reproduce, modify, and display that content in connection with our business and marketing efforts. You represent and warrant that you own or have obtained all necessary rights to the content you submit and that it does not violate any third-party rights or applicable laws.
+        </p>
 
-      <h2 id="intellectual">Intellectual Property</h2>
-      <p>
-        All content on our website, including but not limited to text, graphics, logos, images, product 
-        descriptions, photographs, and software, is the property of PERFÉRO Fragrance or its content suppliers 
-        and is protected by Indian and international copyright, trademark, and other intellectual property laws.
-      </p>
+        <h2>11) Disclaimer of Warranties</h2>
+        <p>
+          THE SITE AND ALL ITS CONTENTS ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT ANY WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SITE WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR FREE FROM VIRUSES OR OTHER HARMFUL COMPONENTS.
+        </p>
 
-      <h3>Trademarks</h3>
-      <p>
-        PERFÉRO, the PERFÉRO logo, and all related product names are trademarks of 7 ACE EXIM LLP. You may 
-        not use these trademarks without our prior written permission.
-      </p>
+        <h2>12) Limitation of Liability</h2>
+        <p>
+          TO THE MAXIMUM EXTENT PERMITTED BY LAW, PERFÉRO AND ITS OFFICERS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE SITE OR PURCHASE OF OUR PRODUCTS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATING TO THESE TERMS OR THE SITE SHALL NOT EXCEED THE TOTAL AMOUNT YOU PAID FOR THE PRODUCT OR SERVICE IN QUESTION.
+        </p>
 
-      <h3>Limited License</h3>
-      <p>
-        You are granted a limited, non-exclusive, non-transferable license to access and use our website for 
-        personal, non-commercial purposes. You may not:
-      </p>
-      <ul>
-        <li>Reproduce, distribute, or publicly display any content without permission</li>
-        <li>Modify or create derivative works from our content</li>
-        <li>Use any automated systems (bots, scrapers) to access our website</li>
-        <li>Reverse engineer or attempt to access source code</li>
-      </ul>
+        <h2>13) Indemnification</h2>
+        <p>
+          You agree to indemnify, defend, and hold harmless Perféro, its parent company, subsidiaries, affiliates, officers, employees, agents, and successors from any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from: (a) your violation of these Terms; (b) your misuse of the Site; (c) your violation of any third-party rights; or (d) any other conduct that violates applicable law.
+        </p>
 
-      <h2 id="prohibited">Prohibited Uses</h2>
-      <p>
-        You agree not to use our website or services for any unlawful purpose or in any way that:
-      </p>
-      <ul>
-        <li>Violates applicable laws or regulations</li>
-        <li>Infringes intellectual property rights of others</li>
-        <li>Harasses, abuses, or harms another person</li>
-        <li>Transmits viruses, malware, or other harmful code</li>
-        <li>Attempts to gain unauthorized access to our systems</li>
-        <li>Impersonates any person or entity</li>
-        <li>Engages in fraudulent or deceptive practices</li>
-        <li>Interferes with the proper functioning of our website</li>
-      </ul>
-      <p>
-        We reserve the right to terminate your access for violating these prohibited uses.
-      </p>
+        <h2>14) Governing Law & Dispute Resolution</h2>
+        <p>
+          These Terms and your use of the Site are governed by and construed in accordance with the laws of the <span className="font-medium">Republic of India</span>, without regard to its conflict of law principles. Any disputes arising out of or relating to these Terms or the Site shall be subject to the exclusive jurisdiction of the courts located in <span className="font-medium">New Delhi, India</span>. By agreeing to these Terms, you consent to the personal jurisdiction and venue of these courts.
+        </p>
 
-      <h2 id="warranties">Warranties & Limitation of Liability</h2>
-      
-      <h3>Product Warranties</h3>
-      <p>
-        Our products are sold "as is" to the extent permitted by law. We warrant that our products conform 
-        to their descriptions and are free from defects in materials and workmanship under normal use. This 
-        warranty does not cover:
-      </p>
-      <ul>
-        <li>Damage caused by misuse, abuse, or improper storage</li>
-        <li>Normal wear and tear</li>
-        <li>Allergic reactions or sensitivities to fragrance ingredients</li>
-        <li>Products purchased from unauthorized sellers</li>
-      </ul>
+        <h2>15) Termination</h2>
+        <p>
+          We may immediately terminate or suspend your account and access to the Site, without prior notice or liability, if we reasonably believe you have violated these Terms or engaged in any unlawful activity. Upon termination, your right to use the Site ceases immediately.
+        </p>
 
-      <h3>Website Disclaimer</h3>
-      <p>
-        Our website is provided on an "as is" and "as available" basis. We make no warranties or representations 
-        about the accuracy, reliability, or availability of our website. To the fullest extent permitted by law, 
-        we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a 
-        particular purpose, and non-infringement.
-      </p>
+        <h2>16) Changes to These Terms</h2>
+        <p>
+          We may revise these Terms at any time without prior notice. The revised version will be posted on this page with an updated "Last updated" date. Continued access to or use of the Site following the posting of changes constitutes your binding acceptance of the updated Terms. If you do not agree with any changes, please discontinue your use of the Site.
+        </p>
 
-      <h3>Limitation of Liability</h3>
-      <p>
-        To the maximum extent permitted by law, PERFÉRO Fragrance, its directors, employees, and affiliates 
-        shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including 
-        but not limited to loss of profits, data, or business opportunities, arising out of or related to:
-      </p>
-      <ul>
-        <li>Your use of or inability to use our website or products</li>
-        <li>Any errors or omissions in content</li>
-        <li>Unauthorized access to your information</li>
-        <li>Delays or disruptions in service</li>
-      </ul>
-      <p>
-        Our total liability for any claim arising out of these Terms shall not exceed the amount you paid for 
-        the product(s) in question, or ₹5,000, whichever is lower.
-      </p>
-      <p>
-        Some jurisdictions do not allow limitations on implied warranties or liability for incidental or 
-        consequential damages, so some of the above limitations may not apply to you. You may have specific 
-        legal rights that vary by jurisdiction.
-      </p>
+        <h2>17) Contact Us</h2>
+        <p>
+          For any questions, concerns, or requests regarding these Terms of Service, please contact us at:<br />
+          <span className="font-medium">Email:</span> <a href="mailto:support@perferofragrance.com" className="underline hover:text-gold transition-colors">
+            support@perferofragrance.com
+          </a><br />
+          <span className="font-medium">Brand:</span> Perféro<br />
+          <span className="font-medium">Company:</span> 7 ACE EXIM LLP
+        </p>
 
-      <h2 id="indemnification">Indemnification</h2>
-      <p>
-        You agree to indemnify, defend, and hold harmless PERFÉRO Fragrance, 7 ACE EXIM LLP, and our officers, 
-        directors, employees, and agents from any claims, liabilities, damages, losses, costs, or expenses 
-        (including reasonable attorneys' fees) arising out of or related to:
-      </p>
-      <ul>
-        <li>Your violation of these Terms</li>
-        <li>Your violation of any law or the rights of a third party</li>
-        <li>Your use of our website or products</li>
-        <li>Any content you submit to our website</li>
-      </ul>
-
-      <h2 id="governing">Governing Law</h2>
-      <p>
-        These Terms and any disputes arising out of or related to them shall be governed by and construed in 
-        accordance with the laws of India, without regard to conflict of law principles. The United Nations 
-        Convention on Contracts for the International Sale of Goods does not apply.
-      </p>
-
-      <h2 id="disputes">Dispute Resolution</h2>
-      
-      <h3>Informal Resolution</h3>
-      <p>
-        Before filing any formal dispute, you agree to first contact us at <a href="mailto:support@perferofragrance.com">support@perferofragrance.com</a> and 
-        attempt to resolve the issue informally. We will make good-faith efforts to resolve any disputes amicably.
-      </p>
-
-      <h3>Jurisdiction & Venue</h3>
-      <p>
-        Any disputes that cannot be resolved informally shall be subject to the exclusive jurisdiction of the 
-        courts located in New Delhi, India. You agree to submit to the personal jurisdiction of these courts.
-      </p>
-
-      <h3>Arbitration</h3>
-      <p>
-        For disputes involving amounts less than ₹50,000, you and PERFÉRO Fragrance agree to resolve the 
-        dispute through binding arbitration in accordance with the Arbitration and Conciliation Act, 1996. 
-        The arbitration shall be conducted in New Delhi by a single arbitrator mutually agreed upon by both parties.
-      </p>
-
-      <h2 id="changes">Changes to These Terms</h2>
-      <p>
-        We reserve the right to modify these Terms at any time. When we make changes, we will update the 
-        "Last updated" date at the top of this page. Material changes will be communicated through our website 
-        or via email.
-      </p>
-      <p>
-        Your continued use of our website and services after such changes constitutes acceptance of the updated 
-        Terms. If you do not agree with the modified Terms, you must discontinue use of our services.
-      </p>
-
-      <h2 id="severability">Severability & Waiver</h2>
-      <p>
-        If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall 
-        remain in full force and effect. Our failure to enforce any right or provision shall not constitute a 
-        waiver of that right or provision.
-      </p>
-
-      <h2 id="entire">Entire Agreement</h2>
-      <p>
-        These Terms, together with our Privacy Policy and Refund & Returns Policy, constitute the entire 
-        agreement between you and PERFÉRO Fragrance regarding the use of our website and purchase of products, 
-        superseding any prior agreements.
-      </p>
-
-      <h2 id="contact">Contact Us</h2>
-      <p>
-        If you have any questions or concerns about these Terms of Service, please contact us:
-      </p>
-      <p>
-        <strong>PERFÉRO Fragrance</strong><br />
-        7 ACE EXIM LLP<br />
-        New Delhi, India
-      </p>
-      <p>
-        Email: <a href="mailto:support@perferofragrance.com">support@perferofragrance.com</a><br />
-        Phone: <a href="tel:+919821209804">+91 9821209804</a><br />
-        Website: <a href="https://www.perferofragrance.com">www.perferofragrance.com</a>
-      </p>
-
-      <p className="text-xs text-muted mt-10 pt-6 border-t border-line">
-        These Terms of Service are provided for clarity and transparency. They do not create additional rights 
-        beyond those provided by law. Please consult with legal counsel for specific questions about your rights 
-        and obligations.
-      </p>
-    </LegalLayout>
+        <hr className="my-10 border-neutral-200" />
+        <p className="text-xs text-neutral-500">
+          <span className="font-semibold">Legal Notice:</span> These Terms of Service are compliant with the Indian Consumer Protection (E-Commerce) Rules 2020 and related legislation. This document is provided for informational purposes. For questions regarding compliance with specific laws, please consult with a qualified legal professional. Last updated 28 October 2025.
+        </p>
+      </section>
+    </main>
   );
 }
-

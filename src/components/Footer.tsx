@@ -22,7 +22,7 @@ const Footer = () => {
     legal: [
       { name: 'Privacy Policy', href: '/privacy' },
       { name: 'Terms of Service', href: '/terms' },
-      { name: 'Refund Policy', href: '/refund' },
+      { name: 'Returns & Refund Policy', href: '/refund' },
     ],
   };
 
@@ -34,7 +34,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-ink text-ivory">
-      <div className="container-luxury py-8 sm:py-10 lg:py-12">
+      <div className="container-luxury py-8 sm:py-10 lg:py-12 pb-4 sm:pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2">
@@ -55,7 +55,6 @@ const Footer = () => {
               Great perfumes made with care. Experience seven different scents 
               in one beautiful package, designed for modern people.
             </p>
-            
             {/* Contact Info */}
             <div className="space-y-1.5 sm:space-y-2">
               <div className="flex items-center space-x-2 text-ivory/80">

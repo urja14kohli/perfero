@@ -17,6 +17,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  // Ensure distDir is explicitly set to avoid Turbopack path issues on Vercel
+  distDir: '.next',
 };
 
 export default nextConfig;

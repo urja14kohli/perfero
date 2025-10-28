@@ -171,33 +171,6 @@ export default function ProductDetailPage() {
               </p>
             </div>
 
-            {/* Fragrance Notes */}
-            {product.fragranceNotes && (
-              <div>
-                <h3 className="font-display text-lg sm:text-xl text-charcoal mb-3 sm:mb-4">Fragrance Notes</h3>
-                <div className="space-y-2 sm:space-y-3">
-                  <div>
-                    <span className="text-xs sm:text-sm font-medium text-charcoal">Top Notes: </span>
-                    <span className="text-xs sm:text-sm text-muted">
-                      {product.fragranceNotes.top.join(', ')}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-xs sm:text-sm font-medium text-charcoal">Middle Notes: </span>
-                    <span className="text-xs sm:text-sm text-muted">
-                      {product.fragranceNotes.middle.join(', ')}
-                    </span>
-                  </div>
-                  <div>
-                    <span className="text-xs sm:text-sm font-medium text-charcoal">Base Notes: </span>
-                    <span className="text-xs sm:text-sm text-muted">
-                      {product.fragranceNotes.base.join(', ')}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {/* Quantity & Add to Cart */}
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center space-x-3 sm:space-x-4">

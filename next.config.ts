@@ -17,7 +17,6 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  outputFileTracingRoot: '/Users/urjakohli/perfero',
 };
 
 export default nextConfig;

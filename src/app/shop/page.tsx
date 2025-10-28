@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import { products, getProductsByCategory } from '@/lib/products';
 import { Filter, Grid, List } from 'lucide-react';
+import Link from 'next/link';
 
 function ShopContent() {
   const searchParams = useSearchParams();
@@ -195,14 +196,63 @@ function ShopContent() {
       {/* Featured Gift Pack Section */}
       {selectedCategory === 'all' && (
         <section className="bg-[radial-gradient(1200px_600px_at_50%_0,#F6F1E6,transparent)] py-12 sm:py-16 lg:py-24">
-          <div className="max-w-[800px] mx-auto text-center px-4 sm:px-6">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-charcoal">Featured Gift Pack</h2>
-            <p className="mt-2 sm:mt-3 text-base sm:text-lg text-muted">Our signature 7-fragrance collection in one beautiful package.</p>
-            <div className="mt-6 sm:mt-8 lg:mt-10 bg-white border border-line rounded-2xl shadow-card p-4 sm:p-6 lg:p-8 inline-block max-w-full">
-              <ProductCard 
-                product={products.find(p => p.category === 'gift-pack')!} 
-              />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-charcoal">Featured Gift Pack</h2>
+              <p className="mt-2 sm:mt-3 text-base sm:text-lg text-muted">Our signature 7-fragrance collection in one beautiful package.</p>
             </div>
+            
+            {(() => {
+              const giftPack = products.find(p => p.category === 'gift-pack');
+              if (!giftPack) return null;
+              
+              return (
+                <div className="bg-white border border-line rounded-2xl shadow-card p-6 sm:p-8 lg:p-10">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    {/* Image */}
+                    <div className="flex justify-center">
+                      <img 
+                        src={giftPack.images[0]} 
+                        alt={giftPack.name}
+                        className="w-full h-auto rounded-lg object-cover"
+                      />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="font-display text-2xl sm:text-3xl text-charcoal mb-3">
+                          {giftPack.name}
+                        </h3>
+                        <p className="text-muted text-base sm:text-lg leading-relaxed mb-6">
+                          {giftPack.description}
+                        </p>
+                      </div>
+                      
+                      {/* Pricing */}
+                      <div className="flex items-baseline gap-3">
+                        <span className="text-3xl font-semibold text-gold">
+                          ₹{giftPack.salePrice}
+                        </span>
+                        <span className="text-lg text-muted line-through">
+                          ₹{giftPack.price}
+                        </span>
+                      </div>
+                      
+                      {/* CTA Buttons */}
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Link href={`/shop/${giftPack.id}`} className="btn-primary w-full sm:w-auto text-center">
+                          View Details
+                        </Link>
+                        <button className="btn-outline w-full sm:w-auto">
+                          Add to Cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </section>
       )}

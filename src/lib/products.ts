@@ -146,7 +146,7 @@ export const products: Product[] = [
     salePrice: 799,
     size: '7x10ml',
     images: [
-      '/images/gift-pack/pack front.jpeg'
+      '/images/gift-pack/pack classic angle.jpeg'
     ],
     description: 'Experience the complete Perféro collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
     category: 'gift-pack',

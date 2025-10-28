@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Star } from 'lucide-react';
 import { Product } from '@/lib/products';
-import ImageStage from '@/components/ImageStage';
 
 interface GiftPackHighlightProps {
   giftPack: Product;
@@ -70,18 +70,19 @@ const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <div className="relative max-w-sm mx-auto sm:max-w-md pb-8 sm:pb-10">
-              <ImageStage
+            <div className="relative aspect-square max-w-md mx-auto">
+              <Image
                 src={giftPack.images[0]}
                 alt={giftPack.name}
-                maskEdges={true}
-                className="shadow-card"
+                fill
+                className="object-cover rounded-lg shadow-card"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute -bottom-3 sm:-bottom-6 left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:-right-4 lg:-right-6 bg-gold text-charcoal px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold shadow-card">
-                <div className="text-center">
-                  <div className="font-semibold">₹799</div>
-                  <div className="text-[10px] sm:text-xs line-through opacity-70">₹1,077</div>
-                </div>
+            </div>
+            <div className="absolute -bottom-6 -right-2 bg-gold text-charcoal px-6 py-3 rounded-full text-lg font-semibold shadow-card">
+              <div className="text-center">
+                <div className="font-semibold">₹{giftPack.salePrice}</div>
+                <div className="text-[10px] sm:text-xs line-through opacity-70">₹{giftPack.price}</div>
               </div>
             </div>
           </motion.div>

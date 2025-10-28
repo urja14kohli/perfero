@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Star, Shield, Truck, RotateCcw } from 'lucide-react';
-import ImageStage from '@/components/ImageStage';
+import { getGiftPack } from '@/lib/products';
 
 const Hero = () => {
+  const giftPack = getGiftPack();
+
   return (
     <section className="relative bg-ivory overflow-hidden noise-overlay">
       {/* Subtle radial gradient background */}
@@ -62,26 +65,28 @@ const Hero = () => {
           </motion.div>
 
           {/* Hero Image */}
-          <motion.div 
-            className="relative order-1 lg:order-2"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          >
-            <div className="relative max-w-sm mx-auto lg:max-w-none">
-              <div className="rounded-lg overflow-hidden">
-                <ImageStage
-                  src="/images/gift-pack/pack front.jpeg"
-                  alt="Perféro Gift Set"
-                  maskEdges={true}
-                  className="shadow-card"
+          {giftPack && (
+            <motion.div 
+              className="relative order-1 lg:order-2"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <div className="relative aspect-square max-w-md mx-auto">
+                <Image
+                  src={giftPack.images[0]}
+                  alt={giftPack.name}
+                  fill
+                  className="object-cover rounded-lg shadow-card"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-gold text-charcoal px-6 py-3 rounded-full font-semibold shadow-card whitespace-nowrap">
-                Made in India
+              <div className="absolute -bottom-6 -right-6 bg-gold text-charcoal px-6 py-3 rounded-full text-lg font-semibold shadow-card">
+                Sale upto {Math.round(((giftPack.price - giftPack.salePrice) / giftPack.price) * 100)}%
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

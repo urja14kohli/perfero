@@ -1,3 +1,5 @@
+'use client';
+
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import Features from '@/components/Features';

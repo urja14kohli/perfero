@@ -263,7 +263,7 @@ function ShopContent() {
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
           <div className="mb-12">
             <h2 className="font-display text-4xl sm:text-5xl text-center text-charcoal mb-4">
-              Earn Free Gift Packs 🎁
+              Earn Free Gift Packs
             </h2>
             <p className="text-center text-lg text-charcoal/70 max-w-2xl mx-auto">
               Refer 5 friends who buy our Gift Pack and get 1 completely FREE!

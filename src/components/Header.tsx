@@ -2,14 +2,21 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ShoppingCart, Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { useCartStore } from '@/lib/cart';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
   const { getTotalItems, openCart } = useCartStore();
   const totalItems = getTotalItems();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -18,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-ivory/80 backdrop-blur-xl border-b border-line/70">
+    <header className="sticky top-0 z-50 bg-ivory/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-line/70 dark:border-slate-700/70 transition-colors">
       <div className="container-luxury">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo & Brand - Left */}
@@ -43,7 +50,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-charcoal hover:text-gold transition-colors duration-300 font-medium text-sm"
+                className="text-charcoal dark:text-ivory hover:text-gold transition-colors duration-300 font-medium text-sm"
               >
                 {item.name}
               </Link>
@@ -52,10 +59,21 @@ const Header = () => {
 
           {/* Right Side Actions - Right */}
           <div className="flex items-center gap-2">
+            {/* Theme Toggle Button */}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 text-charcoal dark:text-ivory hover:text-gold transition-colors duration-300 focus-luxury"
+                aria-label="Toggle dark mode"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+            )}
+
             {/* Cart Button */}
             <button
               onClick={openCart}
-              className="relative p-2 text-charcoal hover:text-gold transition-colors duration-300 focus-luxury"
+              className="relative p-2 text-charcoal dark:text-ivory hover:text-gold transition-colors duration-300 focus-luxury"
               aria-label="Shopping cart"
             >
               <ShoppingCart size={20} className="sm:w-6 sm:h-6" />
@@ -69,7 +87,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-charcoal hover:text-gold transition-colors duration-300 focus-luxury"
+              className="md:hidden p-2 text-charcoal dark:text-ivory hover:text-gold transition-colors duration-300 focus-luxury"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -79,13 +97,13 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-line/70 py-4">
+          <div className="md:hidden border-t border-line/70 dark:border-slate-700/70 py-4">
             <nav className="flex flex-col space-y-3">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-charcoal hover:text-gold transition-colors duration-300 font-medium small py-1"
+                  className="text-charcoal dark:text-ivory hover:text-gold transition-colors duration-300 font-medium small py-1"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

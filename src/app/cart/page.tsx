@@ -47,21 +47,21 @@ export default function Cart() {
   return (
     <div className="bg-ivory">
       {/* Header */}
-      <div className="bg-alabaster py-8">
+      <div className="bg-alabaster py-6 sm:py-8">
         <div className="container-luxury">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
             <div>
-              <h1 className="font-display text-display-lg text-charcoal mb-2">
+              <h1 className="font-display text-2xl sm:text-display-lg text-charcoal mb-1 sm:mb-2">
                 Shopping Cart
               </h1>
-              <p className="text-muted">
+              <p className="text-muted text-sm">
                 {items.length} item{items.length !== 1 ? 's' : ''} in your cart
               </p>
             </div>
             
             <Link
               href="/shop"
-              className="flex items-center text-muted hover:text-gold transition-colors duration-200"
+              className="flex items-center text-muted hover:text-gold transition-colors duration-200 text-sm"
             >
               <ArrowLeft size={16} className="mr-2" />
               Continue Shopping
@@ -70,15 +70,15 @@ export default function Cart() {
         </div>
       </div>
 
-      <div className="container-luxury py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="container-luxury py-6 sm:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2">
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {items.map((item) => (
                 <div
                   key={item.product.id}
-                  className="flex items-center space-x-4 p-6 border border-line rounded-2xl bg-white card-luxury"
+                  className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 border border-line rounded-2xl bg-white card-luxury"
                 >
                   {/* Product Image */}
                   <div className="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">

@@ -62,7 +62,7 @@ export default function Home() {
       {giftPack && <GiftPackHighlight giftPack={giftPack} />}
 
       {/* Referral Program Banner */}
-      <section className="section-spacing bg-white">
+      <section id="referral" className="section-spacing bg-white">
         <div className="container-luxury">
           <ReferralBanner />
         </div>

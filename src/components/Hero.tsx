@@ -58,7 +58,7 @@ const Hero = () => {
               <Link href="/shop" className="btn-primary w-full sm:w-auto text-center">
                 Shop the Gift Pack
               </Link>
-              <Link href="/shop#referral" className="btn-secondary w-full sm:w-auto text-center">
+              <Link href="#referral" className="btn-secondary w-full sm:w-auto text-center">
                 Refer & Earn
               </Link>
             </div>

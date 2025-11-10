@@ -9,6 +9,11 @@ export interface Product {
   category: 'single' | 'gift-pack';
   inStock: boolean;
   featured: boolean;
+  offer?: {
+    isActive: boolean;
+    offerType: '1+1'; // Buy 1 Get 1
+    offerPrice: number; // Price for 2 items
+  };
 }
 
 export const products: Product[] = [
@@ -23,7 +28,12 @@ export const products: Product[] = [
     description: 'A bold and warm fragrance that captures great style. Orka combines rich, warm notes to create a memorable scent experience.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'gildara',
@@ -35,7 +45,12 @@ export const products: Product[] = [
     description: 'An electrifying blend that sparkles with energy. Gildara brings together fresh and vibrant notes for a modern, dynamic fragrance.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'indiglo',
@@ -47,7 +62,12 @@ export const products: Product[] = [
     description: 'Clean and classic, Indiglo embodies timeless style. This fragrance is perfect for those who appreciate classic elegance.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'vermelia',
@@ -59,7 +79,12 @@ export const products: Product[] = [
     description: 'A fresh and aquatic fragrance that captures the essence of ocean breezes. Vermelia is perfect for everyday elegance.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'olivaire',
@@ -71,7 +96,12 @@ export const products: Product[] = [
     description: 'Deep and mysterious, Olivaire is a rich fragrance that commands attention. Perfect for evening wear and special occasions.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'blau',
@@ -83,7 +113,12 @@ export const products: Product[] = [
     description: 'Fresh and green, Blau captures the essence of nature. This vibrant fragrance is perfect for those who love fresh, natural scents.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   {
     id: 'rouviere',
@@ -95,7 +130,12 @@ export const products: Product[] = [
     description: 'Dark and mysterious, Rouvière is a bold fragrance for modern people. Rich, complex, and memorable.',
     category: 'single',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 599
+    }
   },
   
   // Gift Pack (7x10ml) - ₹799 (discounted from ₹1,077)
@@ -111,7 +151,12 @@ export const products: Product[] = [
     description: 'Experience the complete Perféro collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
     category: 'gift-pack',
     inStock: true,
-    featured: true
+    featured: true,
+    offer: {
+      isActive: true,
+      offerType: '1+1',
+      offerPrice: 899
+    }
   }
 ];
 

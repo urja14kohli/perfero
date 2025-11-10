@@ -56,11 +56,11 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
 
         {/* Product Info */}
         <div>
-          <h3 className="font-display text-xl text-charcoal mb-1">
+          <h3 className="font-display text-xl text-charcoal dark:text-ivory mb-1">
             {product.name}
           </h3>
           
-          <p className="small text-muted line-clamp-2 mb-4">
+          <p className="small text-muted dark:text-slate-300 line-clamp-2 mb-4">
             {product.description}
           </p>
 

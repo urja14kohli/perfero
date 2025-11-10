@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import { products, getProductsByCategory } from '@/lib/products';
 import { Filter, Grid, List } from 'lucide-react';
 import Link from 'next/link';
+import ReferralWidget from '@/components/ReferralWidget';
 
 function ShopContent() {
   const searchParams = useSearchParams();
@@ -256,6 +257,13 @@ function ShopContent() {
           </div>
         </section>
       )}
+
+      {/* Referral Program Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-white border-t border-line">
+        <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
+          <ReferralWidget />
+        </div>
+      </section>
     </div>
   );
 }

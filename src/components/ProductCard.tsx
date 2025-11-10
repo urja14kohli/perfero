@@ -35,12 +35,7 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
       <Link href={`/shop/${product.id}`} className="block">
         {/* Product Image with Rounded Corners */}
         <div className="relative mb-4 rounded-2xl overflow-hidden">
-          {product.offer?.isActive && (
-            <span className="absolute left-4 top-4 z-10 text-[11px] uppercase tracking-wide bg-gold/90 text-charcoal px-2.5 py-1 rounded-full">
-              1+1 Offer
-            </span>
-          )}
-          {isOnSale && !product.offer?.isActive && (
+          {isOnSale && (
             <span className="absolute left-4 top-4 z-10 text-[11px] uppercase tracking-wide bg-gold/90 text-charcoal px-2.5 py-1 rounded-full">
               Sale
             </span>

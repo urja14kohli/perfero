@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Plus, Minus, X, ShoppingBag, ArrowLeft } from 'lucide-react';
-import { useCartStore, getItemPrice, getOfferSavings } from '@/lib/cart';
+import { useCartStore } from '@/lib/cart';
 import { formatCurrency } from '@/lib/razorpay';
 import { calculateShipping, calculateTotal } from '@/lib/shipping';
 
@@ -129,18 +129,8 @@ export default function Cart() {
                   {/* Item Total */}
                   <div className="text-right">
                     <p className="font-semibold text-charcoal">
-                      {formatCurrency(getItemPrice(item.product, item.quantity))}
+                      {formatCurrency(item.product.salePrice * item.quantity)}
                     </p>
-                    {item.product.offer?.isActive && item.quantity >= 2 && (
-                      <p className="text-xs text-green-600 font-medium mt-1">
-                        Save {formatCurrency(getOfferSavings(item.product, item.quantity))}
-                      </p>
-                    )}
-                    {item.product.offer?.isActive && (
-                      <div className="text-[10px] bg-gold/10 text-gold px-1.5 py-0.5 rounded mt-1 inline-block">
-                        1+1 Offer
-                      </div>
-                    )}
                   </div>
 
                   {/* Remove Button */}
@@ -179,18 +169,6 @@ export default function Cart() {
                     <span className="text-muted">Subtotal</span>
                     <span className="font-medium">{formatCurrency(subtotal)}</span>
                   </div>
-                  
-                  {/* Offer Savings */}
-                  {items.some(item => item.product.offer?.isActive && item.quantity >= 2) && (
-                    <div className="flex justify-between small text-green-600 font-medium bg-green-50 px-3 py-2 rounded-lg">
-                      <span>1+1 Offer Savings</span>
-                      <span>-{formatCurrency(
-                        items.reduce((total, item) => 
-                          total + getOfferSavings(item.product, item.quantity), 0
-                        )
-                      )}</span>
-                    </div>
-                  )}
                   
                   <div className="flex justify-between small">
                     <span className="text-muted">Shipping</span>

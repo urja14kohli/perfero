@@ -7,33 +7,6 @@ export interface CartItem {
   quantity: number;
 }
 
-// Utility function to calculate item price with 1+1 offer
-export const getItemPrice = (product: Product, quantity: number): number => {
-  if (!product.offer?.isActive) {
-    return product.salePrice * quantity;
-  }
-
-  const pairs = Math.floor(quantity / 2);
-  const remainder = quantity % 2;
-  
-  const pairsPrice = pairs * product.offer.offerPrice;
-  const remainderPrice = remainder * product.salePrice;
-  
-  return pairsPrice + remainderPrice;
-};
-
-// Get offer savings for an item
-export const getOfferSavings = (product: Product, quantity: number): number => {
-  if (!product.offer?.isActive) {
-    return 0;
-  }
-
-  const normalPrice = product.salePrice * quantity;
-  const offerPrice = getItemPrice(product, quantity);
-  
-  return normalPrice - offerPrice;
-};
-
 interface CartStore {
   items: CartItem[];
   isOpen: boolean;
@@ -120,7 +93,7 @@ export const useCartStore = create<CartStore>()(
 
       getTotalPrice: () => {
         return get().items.reduce(
-          (total, item) => total + getItemPrice(item.product, item.quantity),
+          (total, item) => total + item.product.salePrice * item.quantity,
           0
         );
       },

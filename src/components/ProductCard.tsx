@@ -92,7 +92,7 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
               className={`w-full mt-4 ${
                 product.inStock 
                   ? 'btn-outline' 
-                  : 'px-4 py-2 border border-gray-300 rounded-xl text-gray-400 cursor-not-allowed opacity-50'
+                  : 'btn-outline opacity-50 cursor-not-allowed text-gray-400'
               }`}
             >
               {product.inStock ? 'Add to Cart' : 'Sold Out'}

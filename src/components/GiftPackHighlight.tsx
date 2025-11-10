@@ -12,7 +12,7 @@ interface GiftPackHighlightProps {
 
 const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
   return (
-    <section className="section-spacing bg-cream dark:bg-slate-800 transition-colors">
+    <section className="section-spacing bg-cream">
       <div className="container-luxury">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div 
@@ -23,10 +23,10 @@ const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
             viewport={{ once: true }}
           >
             <div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-display-lg text-charcoal dark:text-ivory mb-4 sm:mb-6">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-display-lg text-charcoal mb-4 sm:mb-6">
                 The Perfect Gift
               </h2>
-              <p className="lead text-muted dark:text-slate-300 mb-4 sm:mb-6">
+              <p className="lead text-muted mb-4 sm:mb-6">
                 All 7 amazing scents in one beautiful box. Try them all, pick your favorite, 
                 or gift it to someone special.
               </p>
@@ -37,19 +37,19 @@ const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
                   <Star size={14} className="text-charcoal sm:w-4 sm:h-4" />
                 </div>
-                <span className="body text-muted dark:text-slate-300">7 different fragrances</span>
+                <span className="body text-muted">7 different fragrances</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
                   <Star size={14} className="text-charcoal sm:w-4 sm:h-4" />
                 </div>
-                <span className="body text-muted dark:text-slate-300">Beautiful box</span>
+                <span className="body text-muted">Beautiful box</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gold rounded-full flex items-center justify-center flex-shrink-0">
                   <Star size={14} className="text-charcoal sm:w-4 sm:h-4" />
                 </div>
-                <span className="body text-muted dark:text-slate-300">Perfect gift idea</span>
+                <span className="body text-muted">Perfect gift idea</span>
               </div>
             </div>
 
@@ -80,7 +80,7 @@ const GiftPackHighlight = ({ giftPack }: GiftPackHighlightProps) => {
               />
             </div>
             <div className="absolute -bottom-6 -right-2 bg-gold text-charcoal px-6 py-3 rounded-full text-lg font-semibold shadow-card">
-              <div className="text-center">
+                <div className="text-center">
                 <div className="font-semibold">₹{giftPack.salePrice}</div>
                 <div className="text-[10px] sm:text-xs line-through opacity-70">₹{giftPack.price}</div>
               </div>

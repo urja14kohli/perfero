@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Cart from "@/components/Cart/Cart";
-import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -51,16 +50,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${fraunces.variable} font-sans flex flex-col min-h-screen bg-ivory dark:bg-slate-950 text-charcoal dark:text-ivory transition-colors`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <Cart />
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${inter.variable} ${fraunces.variable} font-sans flex flex-col min-h-screen`}>
+        <Header />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+        <Cart />
       </body>
     </html>
   );

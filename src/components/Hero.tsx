@@ -10,9 +10,9 @@ const Hero = () => {
   const giftPack = getGiftPack();
 
   return (
-    <section className="relative bg-ivory dark:bg-slate-950 overflow-hidden noise-overlay transition-colors">
+    <section className="relative bg-ivory overflow-hidden noise-overlay">
       {/* Subtle radial gradient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,#F6F1E6,transparent)] dark:bg-[radial-gradient(1200px_600px_at_80%_-10%,#1e293b,transparent)] opacity-60"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_80%_-10%,#F6F1E6,transparent)] opacity-60"></div>
       
       <div className="container-luxury section-spacing">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
@@ -24,11 +24,11 @@ const Hero = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="space-y-4 sm:space-y-6">
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight text-charcoal dark:text-ivory">
+              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-display-xl leading-tight text-charcoal">
                 Seven <span className="text-gradient-gold">Scents</span><br/>One Perfect Gift
               </h1>
               
-              <p className="lead text-muted dark:text-slate-300 max-w-xl">
+              <p className="lead text-muted max-w-xl">
                 Great fragrances that feel real, not out of reach. Find your favorite scent at a price that makes sense.
               </p>
             </div>
@@ -37,19 +37,19 @@ const Hero = () => {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="flex items-center gap-2">
                 <Star size={14} className="text-gold fill-current sm:w-4 sm:h-4" />
-                <span className="small text-muted dark:text-slate-300">Great Quality</span>
+                <span className="small text-muted">Great Quality</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs sm:text-sm">🇮🇳</span>
-                <span className="small text-muted dark:text-slate-300">Made in India</span>
+                <span className="small text-muted">Made in India</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs sm:text-sm">🎁</span>
-                <span className="small text-muted dark:text-slate-300">Beautiful Packaging</span>
+                <span className="small text-muted">Beautiful Packaging</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="text-xs sm:text-sm">₹</span>
-                <span className="small text-muted dark:text-slate-300">Smart Pricing</span>
+                <span className="small text-muted">Smart Pricing</span>
               </div>
             </div>
 

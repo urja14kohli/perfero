@@ -33,13 +33,13 @@ export default function Home() {
       <Hero />
 
       {/* Featured Products Section */}
-      <section className="section-spacing bg-white dark:bg-slate-900 transition-colors">
+      <section className="section-spacing bg-white">
         <div className="container-luxury">
           <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-display-lg text-charcoal dark:text-ivory mb-4 sm:mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-display-lg text-charcoal mb-4 sm:mb-6">
               Featured Collection
             </h2>
-            <p className="lead text-muted dark:text-slate-300 max-w-2xl mx-auto px-4">
+            <p className="lead text-muted max-w-2xl mx-auto px-4">
               Meet our 7 must-have scents, each one perfect in its own way
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
       {giftPack && <GiftPackHighlight giftPack={giftPack} />}
 
       {/* Referral Program Banner */}
-      <section className="section-spacing bg-white dark:bg-slate-900 transition-colors">
+      <section className="section-spacing bg-white">
         <div className="container-luxury">
           <ReferralBanner />
         </div>
@@ -72,13 +72,13 @@ export default function Home() {
       <Features />
 
       {/* Newsletter Signup */}
-      <section className="section-spacing bg-alabaster dark:bg-slate-800 transition-colors">
+      <section className="section-spacing bg-alabaster">
         <div className="container-luxury">
           <div className="max-w-2xl mx-auto text-center px-4">
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-display-lg text-charcoal dark:text-ivory mb-4 sm:mb-6">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-display-lg text-charcoal mb-4 sm:mb-6">
               Stay in the Loop
             </h2>
-            <p className="lead text-muted dark:text-slate-300 mb-6 sm:mb-8">
+            <p className="lead text-muted mb-6 sm:mb-8">
               Get sweet deals, new scent drops, and tips to find your perfect fragrance
             </p>
             
@@ -94,7 +94,7 @@ export default function Home() {
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1 px-4 py-2.5 sm:py-3 border border-line dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white dark:bg-slate-700 text-charcoal dark:text-ivory text-sm sm:text-base placeholder:dark:text-slate-400"
+                className="flex-1 px-4 py-2.5 sm:py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white text-sm sm:text-base"
                 required
               />
               <button type="submit" className="btn-primary px-6 sm:px-8 py-2.5 sm:py-3 whitespace-nowrap">

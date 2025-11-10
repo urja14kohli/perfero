@@ -35,7 +35,14 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
       <Link href={`/shop/${product.id}`} className="block">
         {/* Product Image with Rounded Corners */}
         <div className="relative mb-4 rounded-2xl overflow-hidden">
-          {isOnSale && (
+          {!product.inStock && (
+            <div className="absolute inset-0 z-20 bg-black/40 flex items-center justify-center">
+              <span className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold">
+                Sold Out
+              </span>
+            </div>
+          )}
+          {isOnSale && product.inStock && (
             <span className="absolute left-4 top-4 z-10 text-[11px] uppercase tracking-wide bg-gold/90 text-charcoal px-2.5 py-1 rounded-full">
               Sale
             </span>
@@ -81,9 +88,14 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
           {showAddToCart && (
             <button
               onClick={handleAddToCart}
-              className="w-full btn-outline mt-4"
+              disabled={!product.inStock}
+              className={`w-full mt-4 ${
+                product.inStock 
+                  ? 'btn-outline' 
+                  : 'px-4 py-2 border border-gray-300 rounded-xl text-gray-400 cursor-not-allowed opacity-50'
+              }`}
             >
-              Add to Cart
+              {product.inStock ? 'Add to Cart' : 'Sold Out'}
             </button>
           )}
         </div>

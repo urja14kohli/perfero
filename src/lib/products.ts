@@ -22,8 +22,8 @@ export const products: Product[] = [
     images: ['/images/bottles/1.jpeg'],
     description: 'A bold and warm fragrance that captures great style. Orka combines rich, warm notes to create a memorable scent experience.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'gildara',
@@ -34,8 +34,8 @@ export const products: Product[] = [
     images: ['/images/bottles/2.jpeg'],
     description: 'An electrifying blend that sparkles with energy. Gildara brings together fresh and vibrant notes for a modern, dynamic fragrance.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'indiglo',
@@ -46,8 +46,8 @@ export const products: Product[] = [
     images: ['/images/bottles/3.jpeg'],
     description: 'Clean and classic, Indiglo embodies timeless style. This fragrance is perfect for those who appreciate classic elegance.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'vermelia',
@@ -58,8 +58,8 @@ export const products: Product[] = [
     images: ['/images/bottles/4.jpeg'],
     description: 'A fresh and aquatic fragrance that captures the essence of ocean breezes. Vermelia is perfect for everyday elegance.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'olivaire',
@@ -70,8 +70,8 @@ export const products: Product[] = [
     images: ['/images/bottles/5.jpeg'],
     description: 'Deep and mysterious, Olivaire is a rich fragrance that commands attention. Perfect for evening wear and special occasions.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'blau',
@@ -82,8 +82,8 @@ export const products: Product[] = [
     images: ['/images/bottles/6.jpeg'],
     description: 'Fresh and green, Blau captures the essence of nature. This vibrant fragrance is perfect for those who love fresh, natural scents.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   {
     id: 'rouviere',
@@ -94,8 +94,8 @@ export const products: Product[] = [
     images: ['/images/bottles/7.jpeg'],
     description: 'Dark and mysterious, Rouvière is a bold fragrance for modern people. Rich, complex, and memorable.',
     category: 'single',
-    inStock: true,
-    featured: true
+    inStock: false,
+    featured: false
   },
   
   // Gift Pack (7x10ml) - ₹799 (discounted from ₹1,077)

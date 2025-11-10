@@ -37,7 +37,7 @@ const ProductCard = ({ product, showAddToCart = true }: ProductCardProps) => {
         <div className="relative mb-4 rounded-2xl overflow-hidden">
           {!product.inStock && (
             <div className="absolute inset-0 z-20 bg-black/40 flex items-center justify-center">
-              <span className="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold">
+              <span className="bg-gold text-charcoal px-4 py-2 rounded-lg font-semibold">
                 Sold Out
               </span>
             </div>

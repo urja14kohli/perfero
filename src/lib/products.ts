@@ -12,6 +12,22 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  // Gift Pack (7x10ml) - ₹799 (discounted from ₹1,077) - FIRST
+  {
+    id: 'perfero-gift-pack',
+    name: 'Perféro Signature Gift Pack',
+    price: 1077,
+    salePrice: 799,
+    size: '7x10ml',
+    images: [
+      '/images/gift-pack/pack classic angle.jpeg'
+    ],
+    description: 'Experience the complete Perféro collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
+    category: 'gift-pack',
+    inStock: true,
+    featured: true
+  },
+
   // Single Bottles (50ml) - ₹1,500 → ₹699
   {
     id: 'orka',
@@ -95,22 +111,6 @@ export const products: Product[] = [
     description: 'Dark and mysterious, Rouvière is a bold fragrance for modern people. Rich, complex, and memorable.',
     category: 'single',
     inStock: false,
-    featured: true
-  },
-  
-  // Gift Pack (7x10ml) - ₹799 (discounted from ₹1,077)
-  {
-    id: 'perfero-gift-pack',
-    name: 'Perféro Signature Gift Pack',
-    price: 1077,
-    salePrice: 799,
-    size: '7x10ml',
-    images: [
-      '/images/gift-pack/pack classic angle.jpeg'
-    ],
-    description: 'Experience the complete Perféro collection in one beautiful package. Seven different fragrances, each made with care. Perfect for gifting or finding your favorite scent.',
-    category: 'gift-pack',
-    inStock: true,
     featured: true
   }
 ];

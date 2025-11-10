@@ -12,7 +12,8 @@ export default function ReferralBanner() {
       <div className="relative z-10">
         <div className="max-w-3xl">
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-charcoal mb-3">
-            Refer Friends & Earn <span className="text-gold">Free Gift Packs</span>
+            Refer Friends & Earn<br />
+            <span className="text-gold block mt-2">Free Gift Packs</span>
           </h2>
           
           <p className="text-base sm:text-lg text-charcoal/70 mb-8">

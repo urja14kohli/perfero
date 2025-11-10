@@ -16,7 +16,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const whatsappNumber = '919821209804'; // WhatsApp Business number
+  const whatsappNumber = '919953601705'; // WhatsApp Business number
   const whatsappMessage = encodeURIComponent('Hi PERFÉRO! I have a question about your fragrances.');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -161,11 +161,11 @@ ${formData.message}
                   </div>
                 </a>
 
-                <a href="tel:+919821209804" className="flex items-start gap-3 text-muted hover:text-gold transition-colors group">
+                <a href="tel:+919953601705" className="flex items-start gap-3 text-muted hover:text-gold transition-colors group">
                   <Phone size={20} className="mt-0.5 flex-shrink-0 text-gold" />
                   <div>
                     <p className="text-xs text-muted/60 mb-0.5">Call us</p>
-                    <p className="text-sm font-medium group-hover:underline">+91 9821209804</p>
+                    <p className="text-sm font-medium group-hover:underline">+91 9953601705</p>
                   </div>
                 </a>
 

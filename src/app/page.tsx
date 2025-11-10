@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import Features from '@/components/Features';
 import GiftPackHighlight from '@/components/GiftPackHighlight';
+import ReferralBanner from '@/components/ReferralBanner';
 import { getFeaturedProducts, getGiftPack } from '@/lib/products';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -59,6 +60,13 @@ export default function Home() {
 
       {/* Gift Pack Highlight Section */}
       {giftPack && <GiftPackHighlight giftPack={giftPack} />}
+
+      {/* Referral Program Banner */}
+      <section className="section-spacing bg-white">
+        <div className="container-luxury">
+          <ReferralBanner />
+        </div>
+      </section>
 
       {/* Features Section */}
       <Features />

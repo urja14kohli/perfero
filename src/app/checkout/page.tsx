@@ -36,6 +36,7 @@ export default function Checkout() {
     pincode: '',
   });
 
+  const [referralCode, setReferralCode] = useState('');
   const [errors, setErrors] = useState<Partial<CustomerDetails>>({});
 
   const subtotal = getTotalPrice();
@@ -121,6 +122,20 @@ export default function Checkout() {
     setIsProcessing(true);
 
     try {
+      // Track referral if code provided
+      if (referralCode.trim()) {
+        await fetch('/api/referral/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            referralCode: referralCode.trim(),
+            buyerEmail: customerDetails.email,
+            productId: items[0]?.product.id,
+            amount: total,
+          }),
+        }).catch(err => console.log('Referral tracking initiated'));
+      }
+
       // Create order
       const orderResponse = await fetch('/api/payment', {
         method: 'POST',
@@ -128,6 +143,7 @@ export default function Checkout() {
         body: JSON.stringify({
           amount: total,
           customerDetails,
+          referralCode: referralCode.trim() || undefined,
           items: items.map(item => ({
             id: item.product.id,
             name: item.product.name,
@@ -385,7 +401,24 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                <div className="mt-4 sm:mt-6">
+                {/* Referral Code Section */}
+                <div className="mt-6 sm:mt-8 pt-6 border-t border-line">
+                  <h3 className="font-display text-base sm:text-lg text-charcoal mb-4">
+                    Have a Referral Code? (Optional)
+                  </h3>
+                  <input
+                    type="text"
+                    value={referralCode}
+                    onChange={(e) => setReferralCode(e.target.value)}
+                    className="w-full px-4 py-3 border border-line rounded-xl focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent text-sm sm:text-base"
+                    placeholder="Enter referral code from a friend"
+                  />
+                  <p className="text-xs sm:text-sm text-muted mt-2">
+                    💡 Using a referral code helps your friend earn towards a free gift pack!
+                  </p>
+                </div>
+
+                <div className="mt-6 sm:mt-8">
                   <button
                     onClick={handleNext}
                     className="w-full btn-primary"

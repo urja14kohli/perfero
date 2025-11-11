@@ -136,6 +136,8 @@ export const emailService = {
   async sendWelcomeEmail(email: string, name: string, referralCode: string): Promise<boolean> {
     try {
       console.log('🚀 Resend: Sending welcome email from', SENDER_EMAIL, 'to', email);
+      console.log('🔑 Resend API Key exists:', !!process.env.RESEND_API_KEY);
+      console.log('📧 Sender:', SENDER_EMAIL);
       const result = await resend.emails.send({
         from: `${SENDER_NAME} <${SENDER_EMAIL}>`,
         to: email,
@@ -187,9 +189,18 @@ export const emailService = {
       });
 
       console.log('✅ Resend welcome email result:', result);
+      if (result.error) {
+        console.error('❌ Resend returned error:', result.error);
+        return false;
+      }
       return true;
-    } catch (error) {
-      console.error('❌ Resend error sending welcome email:', error);
+    } catch (error: any) {
+      console.error('❌ Resend error sending welcome email:', {
+        message: error?.message,
+        status: error?.status,
+        statusCode: error?.statusCode,
+        error: error,
+      });
       return false;
     }
   },

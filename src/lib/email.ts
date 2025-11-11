@@ -2,7 +2,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const SENDER_EMAIL = 'noreply@perferofragrance.com';
+// Using onboarding_resend.dev for testing - update to your domain once verified
+const SENDER_EMAIL = 'onboarding@resend.dev';
 const SENDER_NAME = 'Perféro';
 
 export const emailService = {

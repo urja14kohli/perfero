@@ -19,14 +19,11 @@ export async function POST(request: NextRequest) {
     const referralCode = await referralDB.getOrCreateReferralCode(email);
     console.log('✅ Referral code created:', referralCode);
 
-    // Send welcome email if this is a new sign-up (optional)
-    if (name) {
-      console.log('📨 Sending welcome email to:', email);
-      const emailSent = await emailService.sendWelcomeEmail(email, name, referralCode);
-      console.log('✅ Email sent result:', emailSent);
-    } else {
-      console.log('⚠️ No name provided, skipping welcome email');
-    }
+    // Send welcome email (always - use email username if no name provided)
+    const displayName = name || email.split('@')[0];
+    console.log('📨 Sending welcome email to:', email, 'Name:', displayName);
+    const emailSent = await emailService.sendWelcomeEmail(email, displayName, referralCode);
+    console.log('✅ Email sent result:', emailSent);
 
     // Get stats
     const stats = await referralDB.getReferrerStats(email);

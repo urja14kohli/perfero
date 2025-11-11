@@ -135,7 +135,8 @@ export const emailService = {
   // Send welcome email with referral code
   async sendWelcomeEmail(email: string, name: string, referralCode: string): Promise<boolean> {
     try {
-      await resend.emails.send({
+      console.log('🚀 Resend: Sending welcome email from', SENDER_EMAIL, 'to', email);
+      const result = await resend.emails.send({
         from: `${SENDER_NAME} <${SENDER_EMAIL}>`,
         to: email,
         subject: 'Welcome to Perféro Referral Program!',
@@ -185,9 +186,10 @@ export const emailService = {
         `,
       });
 
+      console.log('✅ Resend welcome email result:', result);
       return true;
     } catch (error) {
-      console.error('Error sending welcome email:', error);
+      console.error('❌ Resend error sending welcome email:', error);
       return false;
     }
   },
